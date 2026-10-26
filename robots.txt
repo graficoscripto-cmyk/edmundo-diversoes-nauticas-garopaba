@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edmundo-diversoes-nauticas-garopaba.vercel.app/sitemap.xml
