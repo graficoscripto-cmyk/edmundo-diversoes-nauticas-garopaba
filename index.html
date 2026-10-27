@@ -60,15 +60,21 @@
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/pedalinhos-escorregador-garopaba.jpg",
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/caiaque-triplo-garopaba.jpg",
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/banana-boat-20-lugares-garopaba.jpg",
-          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/enseada-igreja-garopaba.jpg"
+          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/enseada-igreja-garopaba.jpg",
+          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/pedalinho-escorregador-mar-garopaba.webp",
+          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/caiaque-transparente-familia-garopaba.webp",
+          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/pranchas-sup-caiaques-praia-garopaba.webp"
         ],
         "founder": [
           { "@type": "Person", "name": "Edmundo Nascimento", "telephone": "+55-48-99965-5708" },
           { "@type": "Person", "name": "Mônica", "telephone": "+55-48-99185-7717" }
         ],
+        "employee": [
+          { "@type": "Person", "name": "Nardi", "jobTitle": "Gerente" }
+        ],
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Praia Central de Garopaba — Centro Histórico / Rancho de Pescadores",
+          "streetAddress": "Final da Avenida dos Pescadores, Praia Central de Garopaba — Centro Histórico / Rancho de Pescadores",
           "addressLocality": "Garopaba",
           "addressRegion": "SC",
           "postalCode": "88495-000",
@@ -119,6 +125,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Contamos com 6 atrações completas: Banana Boat de 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador, Caiaques (Individual, Duplo e Triplo) e pranchas de Stand Up Paddle (SUP), todos com coletes salva-vidas inclusos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Onde fica o ponto do Edmundo Diversões Náuticas em Garopaba?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No final da Avenida dos Pescadores, na areia da Praia Central de Garopaba, perto do Rancho de Pescadores e do Centro Histórico. É só procurar a equipe de camisa laranja."
             }
           }
         ]
@@ -193,7 +207,7 @@
     .menu { display: none; align-items: center; gap: 24px; font: 600 14.5px/1 var(--sans); color: var(--soft); flex: 0 0 auto; }
     .menu a { display: inline-flex; align-items: center; min-height: 44px; transition: color 0.2s; }
     .menu a:hover { color: var(--coral); }
-    .topo-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; background: var(--coral); color: #fff; font: 700 13.5px/1 var(--sans); flex: 0 0 auto; white-space: nowrap; transition: transform 0.2s var(--ease), background 0.2s; }
+    .topo-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--coral); color: #fff; font: 700 13.5px/1 var(--sans); flex: 0 0 auto; white-space: nowrap; transition: transform 0.2s var(--ease), background 0.2s; }
     .topo-cta:active { transform: scale(0.97); }
     @media (min-width: 900px) {
       .menu { display: flex; }
@@ -299,11 +313,22 @@
     @media (min-width: 920px) {
       .equipe-grid { grid-template-columns: 1.18fr 1fr; gap: 48px; }
     }
+    .pessoas { display: grid; gap: 16px; margin-top: 40px; }
+    .pessoa { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--raio); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
+    .pessoa-foto { aspect-ratio: 4 / 4.4; background: #062338; overflow: hidden; }
+    .pessoa-foto img { width: 100%; height: 100%; object-fit: cover; }
+    .pessoa figcaption { padding: 16px 18px 18px; display: grid; gap: 4px; }
+    .pessoa figcaption b { font: 800 21px/1.15 var(--display); color: var(--ink); letter-spacing: -0.02em; }
+    .pessoa figcaption span { justify-self: start; padding: 5px 11px; border-radius: 999px; background: rgba(224, 67, 36, 0.1); color: var(--coral); font: 700 11.5px/1 var(--sans); text-transform: uppercase; letter-spacing: 0.06em; }
+    @media (min-width: 600px) { .pessoas { grid-template-columns: 1fr 1fr; gap: 18px; } }
+    @media (min-width: 920px) { .pessoas { max-width: 860px; } }
 
     /* ---------- Jornada na Praia Central ---------- */
     .jornada { display: grid; gap: 32px; align-items: center; }
-    .jornada-fotos { display: grid; grid-template-columns: 1.12fr 0.88fr; gap: 12px; align-items: stretch; }
-    .jornada-fotos .quadro { aspect-ratio: 3 / 4; }
+    .jornada-fotos { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 12px; align-items: stretch; }
+    .jornada-fotos .quadro { aspect-ratio: 3 / 4; min-width: 0; }
+    .jornada > * { min-width: 0; }
+    .jornada-fotos .quadro + .quadro { aspect-ratio: auto; }
     .rota { position: relative; display: grid; gap: 24px; padding-left: 44px; }
     .rota svg.trilha { position: absolute; left: 10px; top: 8px; width: 24px; height: calc(100% - 16px); overflow: visible; }
     .rota svg.trilha path { fill: none; stroke: var(--coral); stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: var(--draw, 1); }
@@ -559,7 +584,7 @@
 
           <article class="card-exp rv" style="--d:300ms">
             <div class="quadro">
-              <img src="img/aguas-calmas-centro.webp" alt="Stand Up Paddle SUP nas águas calmas e cristalinas" width="1600" height="1200" loading="lazy" decoding="async" data-par>
+              <img src="img/pranchas-sup-caiaques-praia-garopaba.webp" srcset="img/pranchas-sup-caiaques-praia-garopaba-1080.webp 810w, img/pranchas-sup-caiaques-praia-garopaba.webp 1200w" sizes="(min-width: 1040px) 380px, (min-width: 640px) 50vw, 100vw" alt="Pranchas de Stand Up Paddle e caiaques da Edmundo Diversões Náuticas enfileirados na areia da Praia de Garopaba" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 52%" data-par>
             </div>
             <div class="card-corpo">
               <div>
@@ -612,6 +637,29 @@
           </ul>
         </div>
       </div>
+
+      <div class="wrap">
+        <div class="pessoas">
+          <figure class="pessoa rv">
+            <div class="pessoa-foto">
+              <img src="img/edmundo-e-monica-garopaba.webp" alt="Edmundo e Mônica, donos da Edmundo Diversões Náuticas em Garopaba - SC" width="875" height="893" loading="lazy" decoding="async" style="object-position:50% 40%">
+            </div>
+            <figcaption>
+              <b>Edmundo e Mônica</b>
+              <span>Donos</span>
+            </figcaption>
+          </figure>
+          <figure class="pessoa rv" style="--d:80ms">
+            <div class="pessoa-foto">
+              <img src="img/nardi-gerente-edmundo-garopaba.webp" srcset="img/nardi-gerente-edmundo-garopaba-1080.webp 864w, img/nardi-gerente-edmundo-garopaba.webp 1449w" sizes="(min-width: 920px) 430px, (min-width: 600px) 50vw, 100vw" alt="Nardi, gerente da Edmundo Diversões Náuticas, com a camisa laranja da equipe na Praia de Garopaba" width="1449" height="1811" loading="lazy" decoding="async" style="object-position:50% 22%">
+            </div>
+            <figcaption>
+              <b>Nardi</b>
+              <span>Gerente</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
     <section class="secao" id="galeria">
@@ -619,7 +667,7 @@
         <div class="cab rv">
           <span class="kicker">Fotos reais na Praia Central · @edmundodiversoesnauticas</span>
           <h2>Momentos reais no mar de <span class="destaque">Garopaba.</span></h2>
-          <p>Veja registros reais do nosso Banana Boat de 20 lugares, Disco Boat, Pedalinhos com escorregador, Lancha de 20 pés e Caiaque Triplo com a Igreja Histórica ao fundo.</p>
+          <p>Registros reais do Banana Boat de 20 lugares, Disco Boat, pedalinhos com escorregador e caiaque em família na enseada.</p>
         </div>
 
         <div class="mosaico">
@@ -628,20 +676,20 @@
             <span class="legenda">Banana Boat de 20 lugares · Centro Histórico de Garopaba</span>
           </div>
           <div class="quadro rv" style="--d:70ms">
+            <img src="img/pedalinho-escorregador-mar-garopaba.webp" srcset="img/pedalinho-escorregador-mar-garopaba-1080.webp 1080w, img/pedalinho-escorregador-mar-garopaba.webp 2000w" sizes="(min-width: 760px) 30vw, 50vw" alt="Família acenando no pedalinho com escorregador no mar azul de Garopaba - SC" width="2000" height="1500" loading="lazy" decoding="async" style="object-position:38% 50%" data-par>
+            <span class="legenda">Pedalinho com escorregador no mar</span>
+          </div>
+          <div class="quadro rv" style="--d:140ms">
+            <img src="img/caiaque-transparente-familia-garopaba.webp" srcset="img/caiaque-transparente-familia-garopaba-1080.webp 1080w, img/caiaque-transparente-familia-garopaba.webp 1280w" sizes="(min-width: 760px) 30vw, 50vw" alt="Pai e filho remando no caiaque transparente verde nas águas calmas de Garopaba" width="1280" height="960" loading="lazy" decoding="async" data-par>
+            <span class="legenda">Caiaque transparente em família</span>
+          </div>
+          <div class="quadro rv" style="--d:100ms">
             <img src="img/disco-boat-garopaba.webp" alt="Família e amigos sorrindo no Disco Boat da Edmundo Diversões Náuticas na Praia de Garopaba" width="2000" height="1500" loading="lazy" decoding="async" data-par>
             <span class="legenda">Disco Boat · Pura adrenalina em grupo</span>
           </div>
-          <div class="quadro rv" style="--d:140ms">
-            <img src="img/pedalinhos-escorregador-garopaba.webp" alt="Pedalinhos com escorregador alinhados na areia da Praia Central de Garopaba" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Pedalinhos com escorregador na Praia Central</span>
-          </div>
-          <div class="quadro rv" style="--d:100ms">
-            <img src="img/lancha-20-pes-garopaba.webp" alt="Lancha de 20 pés FS 200 com motor Mercury para passeios em Garopaba - SC" width="2000" height="1496" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Passeio de Lancha (20 pés)</span>
-          </div>
           <div class="quadro rv" style="--d:170ms">
-            <img src="img/caiaque-triplo-garopaba.webp" alt="Caiaque Triplo da Edmundo Diversões Náuticas nas águas calmas da Praia de Garopaba" width="1920" height="1440" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Caiaque Triplo na enseada</span>
+            <img src="img/pedalinhos-escorregador-garopaba.webp" alt="Pedalinhos com escorregador alinhados na areia da Praia Central de Garopaba" width="2000" height="1500" loading="lazy" decoding="async" data-par>
+            <span class="legenda">Pedalinhos na Praia Central</span>
           </div>
         </div>
 
@@ -674,8 +722,8 @@
             <span class="legenda">Passeio seguro e divertido</span>
           </div>
           <div class="quadro">
-            <img src="img/centro-historico-igreja-garopaba.webp" alt="Centro Histórico de Garopaba visto da enseada" width="1440" height="1735" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Canto Sul · Centro Histórico</span>
+            <img src="img/sup-mormaii-stand-up-garopaba.webp" alt="Pranchas de Stand Up Paddle Mormaii na barraca Stand Up da Edmundo Diversões Náuticas em Garopaba" width="540" height="720" loading="lazy" decoding="async" data-par>
+            <span class="legenda">Barraca Stand Up</span>
           </div>
         </div>
 
@@ -692,7 +740,7 @@
             <div class="etapa">
               <small>01 · Recepção com Edmundo e Mônica</small>
               <h3>Encontro na Praia Central (Centro Histórico)</h3>
-              <p>Ficamos próximo ao Rancho de Pescadores, onde as águas são protegidas e tranquilas para embarcar direto da areia.</p>
+              <p>Ficamos no final da Avenida dos Pescadores, perto do Rancho de Pescadores, onde as águas são protegidas e tranquilas para embarcar direto da areia.</p>
             </div>
             <div class="etapa">
               <small>02 · Coletes e Preparação</small>
@@ -787,12 +835,12 @@
             <ul class="loc-lista">
               <li>
                 <small>Ponto Oficial na Areia (Há 32 Anos)</small>
-                <b>Praia Central de Garopaba — Próximo ao Rancho de Pescadores</b>
-                <span>Centro Histórico, Garopaba - SC, CEP 88495-000</span>
+                <b>Final da Avenida dos Pescadores — Praia Central de Garopaba</b>
+                <span>Próximo ao Rancho de Pescadores · Centro Histórico, Garopaba - SC, CEP 88495-000</span>
               </li>
               <li>
                 <small>Responsáveis &amp; Atendimento Familiar</small>
-                <b>Edmundo &amp; Mônica · Equipe Edmundo Diversões Náuticas</b>
+                <b>Edmundo &amp; Mônica (donos) · Nardi (gerente)</b>
                 <span>Procure a equipe de camisa laranja na beira da praia</span>
               </li>
               <li>
@@ -812,7 +860,7 @@
           </div>
 
           <div class="mapa rv" style="--d:90ms">
-            <iframe title="Mapa de Edmundo Diversões Náuticas na Praia de Garopaba - SC" src="https://www.google.com/maps?q=Praia+de+Garopaba+Centro+Historico+Garopaba+SC&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe title="Mapa de Edmundo Diversões Náuticas na Praia de Garopaba - SC" src="https://www.google.com/maps?q=Avenida+dos+Pescadores,+Garopaba+-+SC&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
 
@@ -831,7 +879,11 @@
           </details>
           <details class="rv" style="--d:180ms">
             <summary><span>Como reservar ou consultar valores pelo WhatsApp?</span><i></i></summary>
-            <p>É só chamar direto no WhatsApp do Edmundo <strong>(48) 99965-5708</strong> ou no WhatsApp da Mônica <strong>(48) 99185-7717</strong>, ou chegar no nosso ponto na areia do Centro Histórico.</p>
+            <p>É só chamar direto no WhatsApp do Edmundo <strong>(48) 99965-5708</strong> ou no WhatsApp da Mônica <strong>(48) 99185-7717</strong>, ou chegar no nosso ponto na areia, no final da Avenida dos Pescadores (Centro Histórico).</p>
+          </details>
+          <details class="rv" style="--d:240ms">
+            <summary><span>Onde fica o ponto do Edmundo na praia?</span><i></i></summary>
+            <p>No final da Avenida dos Pescadores, na areia da Praia Central de Garopaba, perto do Rancho de Pescadores e do Centro Histórico. É só procurar a equipe de camisa laranja.</p>
           </details>
         </div>
       </div>
@@ -856,7 +908,7 @@
         <div class="rod-col">
           <h4>Localização</h4>
           <ul>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJswRMh1zRJpURLXp5Z4dqQbs" target="_blank" rel="noopener">Praia Central · Centro Histórico / Rancho de Pescadores — Garopaba, SC</a></li>
+            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJswRMh1zRJpURLXp5Z4dqQbs" target="_blank" rel="noopener">Final da Avenida dos Pescadores · Praia Central (Centro Histórico / Rancho de Pescadores) — Garopaba, SC</a></li>
           </ul>
         </div>
       </div>
