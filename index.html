@@ -50,9 +50,9 @@
         "description": "Há 32 anos na Praia Central de Garopaba (Centro Histórico / Rancho de Pescadores) - SC. Atendimento familiar com Edmundo, Mônica e equipe: Banana Boat com 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador, Caiaques (Individual, Duplo e Triplo) e Stand Up Paddle (SUP).",
         "url": "https://edmundo-diversoes-nauticas-garopaba.vercel.app/",
         "telephone": ["+55-48-99965-5708", "+55-48-99185-7717"],
-        "logo": "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/logo-edmundo-oficial.jpg",
+        "logo": "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/logo-edmundo-transparente.png",
         "image": [
-          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/logo-edmundo-oficial.jpg",
+          "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/logo-edmundo-transparente.png",
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/equipe-edmundo-garopaba.jpg",
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/banana-boat-20-lugares-panorama.jpg",
           "https://edmundo-diversoes-nauticas-garopaba.vercel.app/img/disco-boat-garopaba.jpg",
@@ -177,7 +177,7 @@
     /* ---------- Abertura rápida com a Logo Oficial ---------- */
     .intro { position: fixed; inset: 0; z-index: 110; background: var(--abissal); display: grid; place-items: center; pointer-events: none; animation: introOut 0.55s var(--ease) 0.78s forwards; }
     .intro-box { display: grid; justify-items: center; gap: 14px; padding: 0 24px; animation: introIn 0.5s var(--ease) both; }
-    .intro-box img { width: min(320px, 78vw); height: auto; border-radius: 16px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45); border: 2px solid rgba(255, 255, 255, 0.18); }
+    .intro-box img { width: min(340px, 80vw); height: auto; filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.5)); }
     .intro-box small { font: 700 12px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--sol); }
     @keyframes introIn { from { opacity: 0; transform: scale(0.9) translateY(8px); } to { opacity: 1; transform: none; } }
     @keyframes introOut { to { opacity: 0; transform: translateY(-4%); visibility: hidden; } }
@@ -225,7 +225,7 @@
     @keyframes heroZoom { from { transform: scale(1.10); } to { transform: scale(1); } }
     .hero-pill { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: rgba(3, 21, 34, 0.9); color: #fff; font: 700 12.5px/1 var(--sans); }
     .hero-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--coral-vivo); }
-    .hero-badge-logo { position: absolute; right: 12px; top: 12px; width: 128px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4); border: 1.5px solid rgba(255, 255, 255, 0.45); }
+    .hero-badge-logo { position: absolute; right: 12px; top: 12px; width: 136px; filter: drop-shadow(0 6px 14px rgba(3, 21, 34, 0.55)); }
     .hero-badge-logo img { width: 100%; height: auto; margin: 0; animation: none; }
 
     .hero-txt { display: grid; gap: 14px; align-content: center; }
@@ -290,7 +290,7 @@
     .equipe-selo span { font: 600 12.5px/1.2 var(--sans); color: var(--sol); }
     .equipe-texto { display: grid; gap: 16px; }
     .equipe-logo-card { display: inline-flex; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); justify-self: start; }
-    .equipe-logo-card img { width: 112px; height: auto; border-radius: 10px; }
+    .equipe-logo-card img { width: 112px; height: auto; border-radius: 10px; padding: 7px 8px; background: var(--oceano); box-sizing: content-box; }
     .equipe-logo-card div b { display: block; font: 800 16px/1.15 var(--display); color: var(--ink); }
     .equipe-logo-card div small { display: block; font: 600 13px/1.3 var(--sans); color: var(--soft); margin-top: 2px; }
     .equipe-lista { display: grid; gap: 12px; margin-top: 4px; }
@@ -392,7 +392,7 @@
     /* ---------- Rodapé ---------- */
     .rodape { background: #03131F; color: rgba(255, 255, 255, 0.74); padding: 56px 0 108px; font-size: 14.5px; }
     .rod-grid { display: grid; gap: 28px; }
-    .rod-logo { width: 170px; height: auto; border-radius: 12px; margin-bottom: 12px; border: 1px solid rgba(255, 255, 255, 0.15); }
+    .rod-logo { width: 180px; height: auto; margin-bottom: 14px; }
     .rod-col h4 { font: 700 12px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--sol); margin-bottom: 10px; }
     .rod-col a { display: inline-flex; align-items: center; min-height: 44px; color: #fff; }
     .rod-nota { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; color: rgba(255, 255, 255, 0.5); }
@@ -424,7 +424,7 @@
 
   <div class="intro" aria-hidden="true">
     <div class="intro-box">
-      <img src="img/logo-edmundo-oficial.webp" alt="Logo Edmundo Diversões Náuticas — Garopaba - SC" width="914" height="436">
+      <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas — Garopaba - SC" width="1671" height="735">
       <small>32 Anos de Tradição · Praia de Garopaba - SC</small>
     </div>
   </div>
@@ -452,7 +452,7 @@
         <div class="hero-foto">
           <img src="img/banana-boat-20-lugares-garopaba.webp" alt="Banana Boat de 20 lugares da Edmundo Diversões Náuticas navegando nas águas azuis da Praia de Garopaba - SC" width="1440" height="1994" fetchpriority="high" decoding="async">
           <div class="hero-badge-logo">
-            <img src="img/logo-edmundo-oficial.webp" alt="Marca Oficial Edmundo Diversões Náuticas Garopaba-SC" width="914" height="436">
+            <img src="img/logo-edmundo-transparente.webp" alt="Marca Oficial Edmundo Diversões Náuticas Garopaba-SC" width="1671" height="735">
           </div>
           <span class="hero-pill">Banana Boat 20 Lugares · Praia Central de Garopaba - SC</span>
         </div>
@@ -589,7 +589,7 @@
           <p>Quem chega na Praia Central de Garopaba já reconhece de longe nossas camisas laranjas na beira d'água. Há <strong>32 anos</strong>, o <strong>Edmundo</strong> e sua esposa <strong>Mônica</strong> recebem gerações de famílias e turistas com carinho, alegria e total atenção à segurança no mar.</p>
 
           <div class="equipe-logo-card">
-            <img src="img/logo-edmundo-oficial.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" width="224" height="107" loading="lazy">
+            <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" width="224" height="98" loading="lazy">
             <div>
               <b>Edmundo Diversões Náuticas</b>
               <small>Atendimento direto com Edmundo, Mônica e equipe</small>
@@ -842,7 +842,7 @@
     <div class="wrap">
       <div class="rod-grid">
         <div>
-          <img src="img/logo-edmundo-oficial.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" class="rod-logo" width="340" height="162" loading="lazy">
+          <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" class="rod-logo" width="340" height="150" loading="lazy">
           <p>Há 32 anos na Praia Central de Garopaba - SC. Atendimento familiar com Edmundo, Mônica e equipe: Banana Boat de 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador, Caiaque Triplo, Duplo e Individual, e Stand Up Paddle (SUP).</p>
         </div>
         <div class="rod-col">
