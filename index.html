@@ -32,7 +32,7 @@
 
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
-  <link rel="preload" as="image" type="image/webp" href="img/banana-boat-20-lugares-garopaba.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="img/banana-boat-20-lugares-garopaba.webp" fetchpriority="high" media="(max-width:899px)">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,38 +103,9 @@
         "@type": "FAQPage",
         "@id": "https://edmundo-diversoes-nauticas-garopaba.vercel.app/#duvidas",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Há quanto tempo o Edmundo Diversões Náuticas atua em Garopaba?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Há 32 anos! Somos referência tradicional na Praia Central de Garopaba, com atendimento familiar conduzido pelo Edmundo, pela esposa Mônica e por toda a nossa equipe uniformizada na areia."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quantos lugares tem o Banana Boat?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Nosso Banana Boat tem capacidade para até 20 lugares! É ideal tanto para famílias e grupos grandes de amigos quanto para quem quer se juntar a uma saída animada pela baía de Garopaba."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quais brinquedos, passeios e equipamentos vocês têm na praia?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Contamos com 6 atrações completas: Banana Boat de 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador, Caiaques (Individual, Duplo e Triplo) e pranchas de Stand Up Paddle (SUP), todos com coletes salva-vidas inclusos."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Onde fica o ponto do Edmundo Diversões Náuticas em Garopaba?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No final da Avenida dos Pescadores, na areia da Praia Central de Garopaba, perto do Rancho de Pescadores e do Centro Histórico. É só procurar a equipe de camisa laranja."
-            }
-          }
+          { "@type": "Question", "name": "Há quanto tempo vocês atuam?", "acceptedAnswer": { "@type": "Answer", "text": "Há 32 anos na Praia Central de Garopaba, com atendimento da família." } },
+          { "@type": "Question", "name": "Quantos lugares tem o Banana Boat?", "acceptedAnswer": { "@type": "Answer", "text": "Até 20 lugares. Dá para levar a família e a turma toda." } },
+          { "@type": "Question", "name": "Como eu reservo?", "acceptedAnswer": { "@type": "Answer", "text": "Pelo WhatsApp do Edmundo ou da Mônica, ou direto na praia com a equipe de camisa laranja." } }
         ]
       }
     ]
@@ -142,911 +113,455 @@
   </script>
 
   <script>document.documentElement.classList.add('js');</script>
+<style>
+:root{
+  --bg:#F6F8F9; --papel:#FFFFFF; --tinta:#062338; --tinta-2:#3F5A6C;
+  --coral:#CC3A1C; --coral-esc:#A82D14; --sol:#FFB800;
+  --mar:#087E90; --mar-claro:#DDF1F4; --fundo:#062338; --turq:#10B3C7;
+  --f-display:'Bricolage Grotesque',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; --f-texto:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--bg)}
+body{font-family:var(--f-texto);color:var(--tinta);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+picture{display:block}
+.hero-foto picture,.parada .ph picture,.gal picture,.final picture,.pessoa .ph picture{height:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+svg{display:block}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 36px}}
 
-  <style>
-    /* Paleta Oficial "Edmundo Diversões Náuticas — 32 Anos"
-       Extraída diretamente da logo oficial (Prancha Vermelho-Coral #E04324 + Azul Profundo do Mar #062338 + Turquesa #0EA5B7)
-       e do uniforme laranja-vivo (#FF471A) da equipe do Edmundo e da Mônica. */
-    :root {
-      --bg: #F6F8F9;
-      --bg-2: #E6F0F3;
-      --card: #FFFFFF;
-      --ink: #062338;
-      --ink-2: #0B3654;
-      --soft: #416073;
-      --line: rgba(6, 35, 56, 0.11);
-      --oceano: #062338;
-      --abissal: #031522;
-      --turquesa: #10B3C7;
-      --turquesa-escuro: #087E90;
-      --coral: #E04324;
-      --coral-vivo: #FF471A;
-      --sol: #FFB800;
-      --wa: #20B858;
-      --raio: 24px;
-      --gut: clamp(16px, 5vw, 56px);
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-      --display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
-      --sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-    }
+.intro{position:fixed;inset:0;z-index:200;background:var(--fundo);display:grid;place-items:center;animation:introOut .5s .85s var(--ease) forwards}
+.intro img{width:min(62vw,260px);height:auto;animation:introPop .7s var(--ease) both}
+@keyframes introPop{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: var(--sans); }
-    body { background: var(--bg); color: var(--ink); font: 400 16.5px/1.55 var(--sans); overflow-x: hidden; }
-    img, picture, svg { display: block; max-width: 100%; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; touch-action: manipulation; }
-    ul { list-style: none; }
-    h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.025em; line-height: 1.03; }
-    .wrap { width: 100%; max-width: 1220px; margin: 0 auto; padding: 0 var(--gut); }
-    section[id] { scroll-margin-top: 80px; }
-    :focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
-    .destaque { color: var(--coral); }
-    .deep .destaque { color: var(--sol); }
+.prog{position:fixed;top:0;left:0;right:0;height:3px;background:var(--coral);transform:scaleX(0);transform-origin:0 50%;z-index:120}
 
-    /* ---------- Barra de progresso ---------- */
-    .prog-bar { position: fixed; top: 0; left: 0; right: 0; height: 3.5px; z-index: 120; background: rgba(6, 35, 56, 0.08); pointer-events: none; }
-    .prog-fill { width: 100%; height: 100%; background: linear-gradient(90deg, var(--coral), var(--sol), var(--turquesa)); transform-origin: 0 50%; transform: scaleX(0); will-change: transform; }
+.top{position:fixed;top:0;left:0;right:0;z-index:100;padding:max(10px,env(safe-area-inset-top)) 12px 0;transition:transform .35s var(--ease)}
+.top.hide{transform:translateY(-150%)}
+.top-in{max-width:1120px;margin:0 auto;background:var(--papel);border:1px solid rgba(6,35,56,.1);border-radius:999px;padding:5px 6px 5px 14px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 6px 18px -8px rgba(6,35,56,.3)}
+.brand{display:flex;align-items:center;min-height:44px}
+.brand img{height:40px;width:auto}
+.links{display:none;gap:26px;font-weight:600;font-size:.9rem;color:var(--tinta-2)}
+.links a{display:flex;align-items:center;min-height:44px}
+.links a:hover{color:var(--coral)}
+@media(min-width:900px){.links{display:flex}}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:999px;background:var(--coral);color:#fff;font-weight:700;font-size:.98rem;transition:transform .2s var(--ease),background .2s}
+.btn:active{transform:scale(.97)}
+.btn:hover{background:var(--coral-esc)}
+.btn.sm{min-height:44px;padding:0 18px;font-size:.9rem}
+.btn.ghost{background:transparent;color:var(--tinta);border:1.5px solid rgba(6,35,56,.28)}
+.btn.ghost:hover{background:var(--tinta);color:#fff}
+.btn.claro{background:#fff;color:var(--tinta)}
+.btn.claro:hover{background:var(--mar-claro)}
 
-    /* ---------- Abertura rápida com a Logo Oficial ---------- */
-    .intro { position: fixed; inset: 0; z-index: 110; background: var(--abissal); display: grid; place-items: center; pointer-events: none; animation: introOut 0.55s var(--ease) 0.78s forwards; }
-    .intro-box { display: grid; justify-items: center; gap: 14px; padding: 0 24px; animation: introIn 0.5s var(--ease) both; }
-    .intro-box img { width: min(340px, 80vw); height: auto; filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.5)); }
-    .intro-box small { font: 700 12px/1 var(--sans); letter-spacing: 0.16em; text-transform: uppercase; color: var(--sol); }
-    @keyframes introIn { from { opacity: 0; transform: scale(0.9) translateY(8px); } to { opacity: 1; transform: none; } }
-    @keyframes introOut { to { opacity: 0; transform: translateY(-4%); visibility: hidden; } }
+.hero{padding-top:70px}
+.hero-foto{position:relative;margin:0 -8px;border-radius:22px;overflow:hidden;aspect-ratio:1/1.02;background:var(--mar-claro)}
+.hero-foto img{width:100%;height:100%;object-fit:cover;object-position:center 55%;transform:scale(1.06);transition:transform 1.6s var(--ease)}
+.loaded .hero-foto img{transform:scale(1)}
+.hero-txt{padding:22px 20px 34px}
+.selo{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--papel);border:1px solid rgba(6,35,56,.12);font-weight:700;font-size:.82rem}
+.selo i{width:9px;height:9px;border-radius:50%;background:var(--sol);display:block}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2.2rem,9.4vw,3.7rem);line-height:1.02;letter-spacing:-.02em;margin:16px 0 12px}
+h1 em{color:var(--coral);font-style:normal}
+.lead{font-size:1.06rem;color:var(--tinta-2);max-width:34ch}
+.acoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.hero-txt>*{opacity:0;transform:translateY(14px)}
+.loaded .hero-txt>*{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.loaded .hero-txt>*:nth-child(2){transition-delay:.08s}.loaded .hero-txt>*:nth-child(3){transition-delay:.16s}.loaded .hero-txt>*:nth-child(4){transition-delay:.24s}
+@media(min-width:600px) and (max-width:899px){.hero-foto{aspect-ratio:4/3;margin:0}}
+@media(min-width:900px){
+  .hero{padding-top:92px}
+  .hero .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;min-height:calc(100svh - 92px)}
+  .hero-foto{margin:0;aspect-ratio:auto;height:min(72svh,640px);order:2;border-radius:28px}
+  .hero-txt{padding:0}
+}
 
-    /* ---------- Topo fixo com a Logo Oficial ---------- */
-    .topo-wrap { position: fixed; top: 10px; left: 0; right: 0; z-index: 90; padding: 0 12px; transition: transform 0.38s var(--ease); pointer-events: none; }
-    .topo-wrap.hide { transform: translateY(-145%); }
-    .topo { pointer-events: auto; max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 58px; padding: 6px 8px 6px 18px; border-radius: 999px; background: rgba(246, 248, 249, 0.96); border: 1px solid var(--line); box-shadow: 0 12px 28px -18px rgba(6, 35, 56, 0.38); backdrop-filter: blur(10px); }
-    .marca { display: inline-flex; align-items: center; min-height: 44px; min-width: 0; flex: 1 1 auto; }
-    .marca-txt { min-width: 0; }
-    .marca-txt b { display: block; font: 800 clamp(14.5px, 4.1vw, 18px)/1.12 var(--display); letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .marca-txt b span { color: var(--coral); }
-    .menu { display: none; align-items: center; gap: 24px; font: 600 14.5px/1 var(--sans); color: var(--soft); flex: 0 0 auto; }
-    .menu a { display: inline-flex; align-items: center; min-height: 44px; transition: color 0.2s; }
-    .menu a:hover { color: var(--coral); }
-    .topo-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 0 16px; border-radius: 999px; background: var(--coral); color: #fff; font: 700 13.5px/1 var(--sans); flex: 0 0 auto; white-space: nowrap; transition: transform 0.2s var(--ease), background 0.2s; }
-    .topo-cta:active { transform: scale(0.97); }
-    @media (min-width: 900px) {
-      .menu { display: flex; }
-      .topo { min-height: 64px; gap: 16px; padding: 0 10px 0 22px; }
-      .topo-cta { min-height: 44px; padding: 0 18px; font-size: 14px; }
-    }
+.nums{padding:8px 0 40px}
+.nums-g{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.num{background:var(--papel);border:1px solid rgba(6,35,56,.08);border-radius:18px;padding:16px 18px}
+.num b{display:block;font-family:var(--f-display);font-weight:800;font-size:2.1rem;line-height:1;color:var(--mar)}
+.num span{display:block;margin-top:6px;font-size:.86rem;color:var(--tinta-2);font-weight:600}
+@media(min-width:900px){.nums-g{grid-template-columns:repeat(4,1fr)}}
 
-    /* ---------- Botões ---------- */
-    .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 52px; padding: 6px 6px 6px 22px; border-radius: 999px; background: var(--oceano); color: #fff; font: 700 16px/1 var(--sans); transition: transform 0.3s var(--ease), background 0.2s; }
-    .btn i { width: 40px; height: 40px; border-radius: 50%; background: var(--sol); color: var(--ink); display: grid; place-items: center; flex: none; transition: transform 0.3s var(--ease); }
-    .btn i svg { width: 18px; height: 18px; }
-    .btn:active { transform: scale(0.97); }
-    @media (hover: hover) {
-      .btn:hover { background: var(--ink-2); }
-      .btn:hover i { transform: translateX(3px); }
-    }
-    .btn-coral { background: var(--coral); color: #fff; }
-    .btn-coral i { background: #fff; color: var(--coral); }
-    @media (hover: hover) { .btn-coral:hover { background: var(--coral-vivo); } }
-    .btn-sol { background: var(--sol); color: var(--ink); }
-    .btn-sol i { background: var(--ink); color: var(--sol); }
-    .btn-linha { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px rgba(6, 35, 56, 0.22); font: 700 15px/1 var(--sans); color: var(--ink); transition: background 0.2s; }
+.sec{padding:56px 0}
+@media(min-width:900px){.sec{padding:92px 0}}
+.sec.escuro{background:var(--fundo);color:#EAF4F7}
+.sec.papel{background:var(--papel)}
+.kicker{display:inline-block;font-size:.76rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--coral)}
+.escuro .kicker{color:var(--sol)}
+h2{font-family:var(--f-display);font-weight:800;font-size:clamp(1.8rem,6.6vw,2.8rem);line-height:1.06;letter-spacing:-.015em;margin:10px 0 10px;max-width:18ch}
+h2 em{color:var(--coral);font-style:normal}
+.escuro h2 em{color:var(--sol)}
+.sub{color:var(--tinta-2);max-width:42ch}
+.escuro .sub{color:rgba(234,244,247,.78)}
+.rev{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.in{opacity:1;transform:none}
+html:not(.js) .rev,html:not(.js) .hero-txt>*{opacity:1;transform:none}
 
-    /* ---------- Hero com Foto Real do Banana Boat 20 Lugares em Garopaba ---------- */
-    .hero { padding: 84px 0 16px; }
-    .hero-grid { display: grid; gap: 24px; }
-    .hero-foto { position: relative; border-radius: 26px; overflow: hidden; aspect-ratio: 4 / 3.45; background: #062338; box-shadow: 0 22px 48px -20px rgba(6, 35, 56, 0.35); }
-    .hero-foto img { width: 100%; height: 108%; margin-top: -4%; object-fit: cover; object-position: 50% 42%; animation: heroZoom 1.7s var(--ease) 0.55s both; will-change: transform; }
-    @keyframes heroZoom { from { transform: scale(1.10); } to { transform: scale(1); } }
-    .hero-pill { position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: rgba(3, 21, 34, 0.9); color: #fff; font: 700 12.5px/1 var(--sans); }
-    .hero-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--coral-vivo); }
-    .hero-badge-logo { position: absolute; right: 12px; top: 12px; width: 136px; filter: drop-shadow(0 6px 14px rgba(3, 21, 34, 0.55)); }
-    .hero-badge-logo img { width: 100%; height: auto; margin: 0; animation: none; }
+.paradas{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:26px -20px 0;padding:6px 20px 14px;scrollbar-width:none}
+.paradas::-webkit-scrollbar{display:none}
+.parada{flex:0 0 82%;max-width:380px;scroll-snap-align:center;background:var(--papel);color:var(--tinta);border-radius:22px;overflow:hidden}
+.parada .ph{aspect-ratio:4/3}
+.parada .ph img{width:100%;height:100%;object-fit:cover}
+.parada div.t{padding:16px 18px 20px}
+.parada h3{font-family:var(--f-display);font-weight:800;font-size:1.35rem;margin:0 0 4px;line-height:1.15}
+.parada p{font-size:.93rem;color:var(--tinta-2)}
+.parada button{margin-top:12px;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid rgba(6,35,56,.25);font-weight:700;font-size:.86rem}
+.parada button:hover{background:var(--tinta);color:#fff}
+@media(min-width:900px){
+  .paradas{margin:30px 0 0;padding:6px 0;display:grid;grid-template-columns:repeat(3,1fr);overflow:visible}
+  .parada{flex:none;max-width:none}
+}
 
-    .hero-txt { display: grid; gap: 14px; align-content: center; }
-    .selo-topo { display: inline-flex; align-items: center; gap: 8px; justify-self: start; padding: 7px 14px; border-radius: 999px; background: rgba(224, 67, 36, 0.11); font: 700 12.5px/1 var(--sans); color: var(--coral); letter-spacing: 0.04em; text-transform: uppercase; animation: fadeUp 0.75s var(--ease) 0.75s both; }
-    .selo-topo svg { width: 15px; height: 15px; color: var(--coral); flex: none; }
-    .hero h1 { font-size: clamp(35px, 9.6vw, 70px); }
-    .hero h1 .ln { display: block; overflow: hidden; padding-bottom: 0.06em; }
-    .hero h1 .ln > span { display: inline-block; animation: wordRise 0.85s var(--ease) both; animation-delay: calc(0.82s + var(--d, 0ms)); }
-    @keyframes wordRise { from { transform: translateY(108%); } to { transform: none; } }
-    .hero-sub { font-size: clamp(16.5px, 2.2vw, 19px); color: var(--soft); max-width: 42ch; animation: fadeUp 0.8s var(--ease) 1.05s both; }
-    .hero-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin-top: 4px; animation: fadeUp 0.8s var(--ease) 1.15s both; }
-    .hero-provas { display: flex; flex-wrap: wrap; gap: 8px 20px; padding-top: 8px; font: 600 14px/1.3 var(--sans); color: var(--soft); animation: fadeUp 0.8s var(--ease) 1.25s both; }
-    .hero-provas span { display: inline-flex; align-items: center; gap: 7px; }
-    .hero-provas svg { width: 17px; height: 17px; color: var(--coral); flex: none; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.plan{display:grid;gap:18px;margin-top:26px}
+.plan-box{background:var(--papel);color:var(--tinta);border:1px solid rgba(6,35,56,.08);border-radius:24px;padding:20px}
+.lbl{display:block;font-weight:800;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-2);margin:18px 0 8px}
+.lbl:first-child{margin-top:0}
+.opcoes{display:grid;gap:8px}
+.op{min-height:52px;padding:10px 16px;border-radius:14px;border:1.5px solid rgba(6,35,56,.16);text-align:left;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:10px;transition:border-color .2s,background .2s}
+.op[aria-pressed="true"]{border-color:var(--mar);background:var(--mar-claro)}
+.op .ck{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(6,35,56,.25);flex:none;display:grid;place-items:center;color:transparent}
+.op[aria-pressed="true"] .ck{background:var(--mar);border-color:var(--mar);color:#fff}
+.op .ck svg{width:12px;height:12px}
+.cont{display:grid;gap:8px}
+.cnt{display:flex;align-items:center;justify-content:space-between;min-height:52px;padding:6px 8px 6px 16px;border-radius:14px;border:1.5px solid rgba(6,35,56,.16);font-weight:700}
+.cnt div{display:flex;align-items:center;gap:6px}
+.cnt button{width:44px;height:44px;border-radius:50%;background:var(--bg);font-size:1.3rem;font-weight:700;line-height:1}
+.cnt button:active{background:var(--mar-claro)}
+.cnt output{min-width:28px;text-align:center;font-size:1.1rem}
+.in-date{width:100%;min-height:52px;padding:0 14px;border-radius:14px;border:1.5px solid rgba(6,35,56,.16);font:inherit;background:#fff;color:var(--tinta)}
+.resumo{background:var(--fundo);color:#EAF4F7;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.resumo h3{font-family:var(--f-display);font-weight:800;font-size:1.2rem}
+.msg{background:rgba(234,244,247,.1);border-radius:16px;padding:14px 16px;font-size:.95rem;line-height:1.5;min-height:110px}
+.resumo .btn{width:100%}
+.resumo .btn.sol{background:var(--sol);color:var(--tinta)}
+.resumo .btn.sol:hover{background:#ffc933}
+@media(min-width:900px){.plan{grid-template-columns:1.25fr 1fr;align-items:start}.plan-box{padding:28px}.resumo{position:sticky;top:96px}}
 
-    @media (min-width: 920px) {
-      .hero { padding: 96px 0 28px; }
-      .hero-grid { grid-template-columns: 1.06fr 1.18fr; gap: 48px; align-items: center; }
-      .hero-txt { order: -1; }
-      .hero-foto { aspect-ratio: 4 / 3.35; border-radius: 30px; }
-      .hero-badge-logo { width: 156px; right: 16px; top: 16px; }
-    }
+.pessoas{display:grid;gap:14px;margin-top:26px}
+.pessoa{background:var(--bg);border-radius:22px;overflow:hidden}
+.pessoa .ph{aspect-ratio:1/1}
+.pessoa .ph img{width:100%;height:100%;object-fit:cover}
+.pessoa.nardi .ph img{object-position:center 30%}
+.pessoa .t{padding:14px 18px 18px}
+.pessoa h3{font-family:var(--f-display);font-weight:800;font-size:1.25rem;line-height:1.15}
+.pessoa small{display:block;margin-top:2px;font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mar)}
+@media(min-width:700px){.pessoas{grid-template-columns:1fr 1fr;max-width:760px}}
 
-    /* ---------- Seções e Revelação no Scroll ---------- */
-    .secao { padding: clamp(68px, 10vw, 118px) 0; }
-    .secao.alt { background: var(--bg-2); }
-    .secao.deep { background: var(--abissal); color: #fff; }
-    .cab { display: grid; gap: 10px; max-width: 660px; margin-bottom: 34px; }
-    .kicker { font: 700 12.5px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral); }
-    .deep .kicker { color: var(--sol); }
-    .cab h2 { font-size: clamp(31px, 7.6vw, 54px); }
-    .cab p { color: var(--soft); font-size: 17px; max-width: 48ch; }
-    .deep .cab p { color: rgba(255, 255, 255, 0.76); }
+.gal{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:26px -20px 0;padding:0 20px 8px;scrollbar-width:none}
+.gal::-webkit-scrollbar{display:none}
+.gal figure{flex:0 0 78%;max-width:440px;scroll-snap-align:center;border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--mar-claro)}
+.gal img{width:100%;height:100%;object-fit:cover}
+@media(min-width:900px){.gal{margin:34px 0 0;padding:0}.gal figure{flex:1;aspect-ratio:3/4;max-width:none}}
 
-    .js .rv { opacity: 0; transform: translateY(24px); transition: opacity 0.78s var(--ease), transform 0.78s var(--ease); transition-delay: var(--d, 0ms); will-change: opacity, transform; }
-    .js .rv.in { opacity: 1; transform: none; }
+.emb-g{display:grid;gap:20px;margin-top:24px}
+.info{display:grid;gap:10px}
+.info div{background:rgba(234,244,247,.08);border-radius:16px;padding:14px 16px}
+.info small{display:block;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--sol)}
+.info b{display:block;margin-top:2px;font-weight:600}
+.mapa{border-radius:20px;overflow:hidden;background:rgba(234,244,247,.08);min-height:260px;display:grid;place-items:center}
+.mapa iframe{width:100%;height:300px;border:0}
+.faq{margin-top:22px;display:grid;gap:10px}
+details{background:var(--papel);color:var(--tinta);border-radius:16px;padding:0 18px}
+summary{list-style:none;cursor:pointer;min-height:56px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.4rem;color:var(--coral);flex:none}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px;color:var(--tinta-2);font-size:.95rem}
+@media(min-width:900px){.emb-g{grid-template-columns:1fr 1.2fr}}
 
-    .quadro { position: relative; overflow: hidden; border-radius: var(--raio); background: #062338; }
-    .quadro picture, .quadro img { width: 100%; height: 100%; object-fit: cover; }
-    .quadro [data-par] { height: 114%; margin-top: -7%; will-change: transform; }
-    .legenda { position: absolute; left: 12px; bottom: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(3, 21, 34, 0.88); color: #fff; font: 600 12px/1 var(--sans); }
+.final{position:relative;color:#fff;text-align:center;padding:84px 0;background:var(--fundo)}
+.final picture{position:absolute;inset:0}
+.final picture img{width:100%;height:100%;object-fit:cover}
+.final::before{content:"";position:absolute;inset:0;background:rgba(6,35,56,.7);z-index:1}
+.final .wrap{position:relative;z-index:2}
+.final h2{margin:0 auto 12px;max-width:16ch}
+.final h2 em{color:var(--sol)}
+.final p{margin:0 auto 24px;max-width:34ch;color:rgba(255,255,255,.9)}
+footer{background:#031522;color:rgba(234,244,247,.75);padding:26px 0 96px;font-size:.88rem}
+footer a{color:var(--sol);text-decoration:underline;display:inline-block;min-height:24px}
+footer .wrap{display:grid;gap:6px}
 
-    /* ---------- 6 Modalidades na Praia Central (Banana Boat 20 lugares, Disco Boat, Passeio de Lancha 20 pés, Pedalinhos, Caiaques, SUP) ---------- */
-    .cards-exp { display: grid; gap: 14px; }
-    .card-exp { background: var(--card); border: 1px solid var(--line); border-radius: var(--raio); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
-    .card-exp .quadro { aspect-ratio: 4 / 3.1; border-radius: 0; }
-    .card-corpo { padding: 20px 18px 22px; display: grid; gap: 8px; align-content: space-between; }
-    .card-topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-    .card-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; background: rgba(224, 67, 36, 0.1); color: var(--coral); font: 700 11.5px/1 var(--sans); text-transform: uppercase; letter-spacing: 0.06em; }
-    .card-corpo h3 { font-size: 22px; margin-top: 2px; }
-    .card-corpo p { color: var(--soft); font-size: 15px; }
-    @media (min-width: 640px) { .cards-exp { grid-template-columns: 1fr 1fr; gap: 18px; } }
-    @media (min-width: 1040px) { .cards-exp { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+.wa{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;z-index:90;box-shadow:0 8px 20px -6px rgba(0,0,0,.4);transition:transform .2s var(--ease)}
+.wa:active{transform:scale(.94)}
+.wa svg{width:30px;height:30px}
 
-    /* ---------- Seção Edmundo, Mônica & Equipe (32 Anos de História) ---------- */
-    .equipe-grid { display: grid; gap: 28px; align-items: center; }
-    .equipe-foto-box { position: relative; border-radius: 28px; overflow: hidden; box-shadow: 0 24px 52px -22px rgba(6, 35, 56, 0.35); border: 1px solid var(--line); background: #062338; aspect-ratio: 16 / 11.3; }
-    .equipe-foto-box img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
-    .equipe-selo { position: absolute; left: 14px; bottom: 14px; right: 14px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 16px; border-radius: 18px; background: rgba(3, 21, 34, 0.90); color: #fff; backdrop-filter: blur(8px); }
-    .equipe-selo b { font: 800 15px/1.2 var(--display); color: #fff; }
-    .equipe-selo span { font: 600 12.5px/1.2 var(--sans); color: var(--sol); }
-    .equipe-texto { display: grid; gap: 16px; }
-    .equipe-logo-card { display: inline-flex; align-items: center; gap: 14px; padding: 10px 16px 10px 10px; border-radius: 18px; background: var(--card); border: 1px solid var(--line); justify-self: start; }
-    .equipe-logo-card img { width: 112px; height: auto; border-radius: 10px; padding: 7px 8px; background: var(--oceano); box-sizing: content-box; }
-    .equipe-logo-card div b { display: block; font: 800 16px/1.15 var(--display); color: var(--ink); }
-    .equipe-logo-card div small { display: block; font: 600 13px/1.3 var(--sans); color: var(--soft); margin-top: 2px; }
-    .equipe-lista { display: grid; gap: 12px; margin-top: 4px; }
-    .equipe-lista li { display: flex; align-items: flex-start; gap: 10px; font-size: 15.5px; color: var(--ink-2); font-weight: 500; }
-    .equipe-lista svg { width: 20px; height: 20px; color: var(--coral); flex: none; margin-top: 2px; }
-    @media (min-width: 920px) {
-      .equipe-grid { grid-template-columns: 1.18fr 1fr; gap: 48px; }
-    }
-    .pessoas { display: grid; gap: 16px; margin-top: 40px; }
-    .pessoa { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--raio); overflow: hidden; display: grid; grid-template-rows: auto 1fr; }
-    .pessoa-foto { aspect-ratio: 4 / 4.4; background: #062338; overflow: hidden; }
-    .pessoa-foto img { width: 100%; height: 100%; object-fit: cover; }
-    .pessoa figcaption { padding: 16px 18px 18px; display: grid; gap: 4px; }
-    .pessoa figcaption b { font: 800 21px/1.15 var(--display); color: var(--ink); letter-spacing: -0.02em; }
-    .pessoa figcaption span { justify-self: start; padding: 5px 11px; border-radius: 999px; background: rgba(224, 67, 36, 0.1); color: var(--coral); font: 700 11.5px/1 var(--sans); text-transform: uppercase; letter-spacing: 0.06em; }
-    @media (min-width: 600px) { .pessoas { grid-template-columns: 1fr 1fr; gap: 18px; } }
-    @media (min-width: 920px) { .pessoas { max-width: 860px; } }
-
-    /* ---------- Jornada na Praia Central ---------- */
-    .jornada { display: grid; gap: 32px; align-items: center; }
-    .jornada-fotos { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); gap: 12px; align-items: stretch; }
-    .jornada-fotos .quadro { aspect-ratio: 3 / 4; min-width: 0; }
-    .jornada > * { min-width: 0; }
-    .jornada-fotos .quadro + .quadro { aspect-ratio: auto; }
-    .rota { position: relative; display: grid; gap: 24px; padding-left: 44px; }
-    .rota svg.trilha { position: absolute; left: 10px; top: 8px; width: 24px; height: calc(100% - 16px); overflow: visible; }
-    .rota svg.trilha path { fill: none; stroke: var(--coral); stroke-width: 2.6; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: var(--draw, 1); }
-    .etapa { position: relative; }
-    .etapa::before { content: ""; position: absolute; left: -40px; top: 4px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg-2); border: 2.5px solid var(--coral); transform: scale(0.65); transition: transform 0.45s var(--ease), background 0.3s; }
-    .etapa.on::before { transform: scale(1); background: var(--sol); }
-    .etapa small { display: block; font: 700 12px/1 var(--sans); letter-spacing: 0.13em; text-transform: uppercase; color: var(--coral); margin-bottom: 4px; }
-    .etapa h3 { font-size: 22px; }
-    .etapa p { color: var(--soft); font-size: 15.5px; margin-top: 4px; max-width: 38ch; }
-    @media (min-width: 920px) {
-      .jornada { grid-template-columns: 1.05fr 1fr; gap: 56px; }
-      .jornada-fotos { order: 2; }
-    }
-
-    /* ---------- Galeria Mosaico 100% Real do Instagram ---------- */
-    .mosaico { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .mosaico .quadro { aspect-ratio: 4 / 3.4; }
-    .mosaico .quadro.largo { grid-column: 1 / -1; aspect-ratio: 16 / 10.5; }
-    .faixa-numeros { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
-    .num-item { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px 16px; display: grid; gap: 4px; }
-    .num-item strong { font: 800 clamp(26px, 5.5vw, 38px)/1 var(--display); color: var(--coral); }
-    .num-item span { font: 600 14px/1.3 var(--sans); color: var(--soft); }
-    @media (min-width: 760px) {
-      .mosaico { grid-template-columns: 1.35fr 1fr 1fr; grid-template-rows: 270px 270px; gap: 14px; }
-      .mosaico .quadro, .mosaico .quadro.largo { grid-column: auto; aspect-ratio: auto; }
-      .mosaico .quadro.largo { grid-row: span 2; }
-      .faixa-numeros { grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    }
-
-    /* ---------- Depoimentos ---------- */
-    .depoimentos { display: grid; gap: 12px; }
-    .depo { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 22px 20px; display: grid; gap: 12px; align-content: space-between; }
-    .depo p { font-size: 15.5px; color: var(--ink-2); }
-    .depo footer { display: flex; align-items: center; justify-content: space-between; font-size: 13.5px; color: var(--soft); font-weight: 600; }
-    @media (min-width: 860px) { .depoimentos { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
-
-    /* ---------- Simulador de Reserva pro WhatsApp ---------- */
-    .sim-grid { display: grid; gap: 26px; }
-    .campo { display: grid; gap: 10px; }
-    .rotulo { font: 700 12.5px/1 var(--sans); letter-spacing: 0.13em; text-transform: uppercase; color: var(--sol); }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { min-height: 46px; padding: 0 16px; border-radius: 999px; border: 1.5px solid rgba(255, 255, 255, 0.22); color: #fff; font: 600 14.5px/1 var(--sans); transition: background 0.2s, border-color 0.2s, color 0.2s; }
-    .chip.active { background: var(--coral-vivo); border-color: var(--coral-vivo); color: #fff; font-weight: 700; }
-    .linha-cont { display: grid; grid-template-columns: 1fr; gap: 14px; }
-    @media (min-width: 560px) { .linha-cont { grid-template-columns: 1fr 1fr; gap: 12px; } }
-    .caixa-cont { display: flex; align-items: center; justify-content: space-between; min-height: 56px; padding: 6px 8px 6px 16px; border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.04); }
-    .caixa-cont span { font-weight: 600; font-size: 15px; }
-    .cont-botoes { display: flex; align-items: center; gap: 4px; }
-    .c-btn { width: 44px; height: 44px; border-radius: 50%; background: rgba(255, 255, 255, 0.12); color: #fff; font: 700 20px/1 var(--sans); display: grid; place-items: center; }
-    .c-btn:active { background: var(--sol); color: var(--ink); }
-    .c-val { min-width: 30px; text-align: center; font: 800 20px/1 var(--display); }
-    .inp-data { width: 100%; min-height: 56px; border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.06); color: #fff; padding: 0 14px; font: 600 15px var(--sans); color-scheme: dark; }
-    .previa-box { background: rgba(255, 255, 255, 0.07); border: 1px dashed rgba(255, 184, 0, 0.5); border-radius: 18px; padding: 16px 18px; font-size: 14.5px; line-height: 1.5; color: #E8F5F7; white-space: pre-line; overflow-wrap: anywhere; }
-    .sim-grid .btn { width: 100%; }
-    @media (min-width: 900px) {
-      .sim-grid { grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: end; }
-    }
-
-    /* ---------- Localização e FAQ ---------- */
-    .loc-grid { display: grid; gap: 16px; }
-    .loc-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--raio); padding: 26px 20px; display: grid; gap: 16px; align-content: start; }
-    .loc-lista { display: grid; gap: 14px; }
-    .loc-lista li { padding-left: 14px; border-left: 3px solid var(--coral); display: grid; gap: 3px; }
-    .loc-lista small { font: 700 11.5px/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
-    .loc-lista b { font-size: 16px; }
-    .loc-lista span { font-size: 14.5px; color: var(--soft); }
-    .mapa { min-height: 310px; border-radius: var(--raio); overflow: hidden; border: 1px solid var(--line); background: var(--bg-2); }
-    .mapa iframe { width: 100%; height: 100%; min-height: 310px; border: 0; display: block; }
-    @media (min-width: 880px) {
-      .loc-grid { grid-template-columns: 1.05fr 1.2fr; gap: 22px; }
-      .loc-card { padding: 34px; }
-    }
-
-    .faq { margin-top: 40px; display: grid; gap: 10px; }
-    .faq details { background: var(--card); border: 1px solid var(--line); border-radius: 18px; }
-    .faq summary { list-style: none; min-height: 58px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; font: 700 17px/1.25 var(--display); cursor: pointer; }
-    .faq summary::-webkit-details-marker { display: none; }
-    .faq summary i { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-2); flex: none; position: relative; transition: transform 0.3s var(--ease), background 0.2s; }
-    .faq summary i::before, .faq summary i::after { content: ""; position: absolute; left: 8px; right: 8px; top: 13px; height: 2px; background: var(--ink); }
-    .faq summary i::after { transform: rotate(90deg); }
-    .faq details[open] summary i { transform: rotate(45deg); background: var(--coral); }
-    .faq details[open] summary i::before, .faq details[open] summary i::after { background: #fff; }
-    .faq details p { padding: 0 18px 18px; color: var(--soft); font-size: 15.5px; }
-    @media (min-width: 880px) { .faq { grid-template-columns: 1fr 1fr; align-items: start; } }
-
-    /* ---------- Rodapé ---------- */
-    .rodape { background: #03131F; color: rgba(255, 255, 255, 0.74); padding: 56px 0 108px; font-size: 14.5px; }
-    .rod-grid { display: grid; gap: 28px; }
-    .rod-logo { width: 180px; height: auto; margin-bottom: 14px; }
-    .rod-col h4 { font: 700 12px/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--sol); margin-bottom: 10px; }
-    .rod-col a { display: inline-flex; align-items: center; min-height: 44px; color: #fff; }
-    .rod-nota { margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 13px; color: rgba(255, 255, 255, 0.5); }
-    @media (min-width: 860px) {
-      .rod-grid { grid-template-columns: 1.3fr 1fr 1fr; gap: 48px; }
-      .rodape { padding-bottom: 56px; }
-    }
-
-    /* ---------- Bolinha Redonda do WhatsApp ---------- */
-    .zap { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 95; width: 58px; height: 58px; border-radius: 50%; background: var(--wa); color: #fff; display: grid; place-items: center; box-shadow: 0 10px 26px rgba(4, 27, 43, 0.36); transition: transform 0.3s var(--ease), opacity 0.3s; }
-    .zap svg { width: 30px; height: 30px; fill: currentColor; }
-    .zap::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--wa); z-index: -1; animation: zapPing 2.6s ease-out infinite; }
-    .zap.away { opacity: 0; transform: scale(0.8); pointer-events: none; }
-    @keyframes zapPing { 0% { transform: scale(1); opacity: 0.45; } 80%, 100% { transform: scale(1.55); opacity: 0; } }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: 0.01ms !important; animation-delay: 0ms !important; transition-duration: 0.01ms !important; }
-      .intro { display: none; }
-      .js .rv { opacity: 1; transform: none; }
-      .rota svg.trilha path { stroke-dashoffset: 0; }
-      .quadro [data-par] { transform: none !important; }
-    }
-  </style>
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rev,.hero-txt>*{opacity:1;transform:none}
+  .intro{display:none}
+}
+</style>
 </head>
 <body>
 
-  <div class="prog-bar" aria-hidden="true"><div class="prog-fill" id="progFill"></div></div>
+<div class="intro" aria-hidden="true"><img src="img/logo-edmundo-transparente.webp" alt="" width="260" height="114"></div>
+<div class="prog" id="prog" aria-hidden="true"></div>
 
-  <div class="intro" aria-hidden="true">
-    <div class="intro-box">
-      <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas — Garopaba - SC" width="1671" height="735">
-      <small>32 Anos de Tradição · Praia de Garopaba - SC</small>
+<header class="top" id="top">
+  <div class="top-in">
+    <a href="#inicio" class="brand" aria-label="Edmundo Diversões Náuticas, início">
+      <img src="img/logo-edmundo-transparente.webp" alt="Edmundo Diversões Náuticas · Garopaba-SC" width="91" height="40">
+    </a>
+    <nav class="links" aria-label="Principal">
+      <a href="#atracoes">Atrações</a>
+      <a href="#monte">Monte o seu</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#local">Onde estamos</a>
+    </nav>
+    <a href="#monte" class="btn sm">Reservar</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-foto">
+      <picture>
+        <source media="(min-width:900px)" srcset="img/banana-boat-20-lugares-panorama.webp" type="image/webp">
+        <img src="img/banana-boat-20-lugares-garopaba.webp" alt="Banana Boat de 20 lugares nas águas de Garopaba" width="1440" height="1994" fetchpriority="high" decoding="async">
+      </picture>
+    </div>
+    <div class="hero-txt">
+      <span class="selo"><i></i>32 anos na Praia Central</span>
+      <h1>Diversão no mar de <em>Garopaba.</em></h1>
+      <p class="lead">Banana Boat, Disco Boat, lancha, pedalinho, caiaque e SUP, direto da areia.</p>
+      <div class="acoes">
+        <a href="#monte" class="btn">Montar meu passeio</a>
+        <a href="https://wa.me/5548999655708?text=Ol%C3%A1%2C%20Edmundo!%20Vim%20pelo%20site%20e%20quero%20saber%20sobre%20os%20passeios%20em%20Garopaba." class="btn ghost" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
     </div>
   </div>
+</section>
 
-  <div class="topo-wrap" id="topoWrap">
-    <header class="topo">
-      <a href="#inicio" class="marca" aria-label="Edmundo Diversões Náuticas — início">
-        <div class="marca-txt">
-          <b>Edmundo <span>Diversões Náuticas</span></b>
-        </div>
-      </a>
-      <nav class="menu" aria-label="Menu principal">
-        <a href="#modalidades">Atrações</a>
-        <a href="#equipe">Edmundo, Mônica &amp; Equipe</a>
-        <a href="#galeria">Fotos Reais</a>
-        <a href="#agendar">Reservar</a>
-      </nav>
-      <a href="#agendar" class="topo-cta">WhatsApp</a>
-    </header>
-  </div>
-
-  <main id="inicio">
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div class="hero-foto">
-          <img src="img/banana-boat-20-lugares-garopaba.webp" alt="Banana Boat de 20 lugares da Edmundo Diversões Náuticas navegando nas águas azuis da Praia de Garopaba - SC" width="1440" height="1994" fetchpriority="high" decoding="async">
-          <div class="hero-badge-logo">
-            <img src="img/logo-edmundo-transparente.webp" alt="Marca Oficial Edmundo Diversões Náuticas Garopaba-SC" width="1671" height="735">
-          </div>
-          <span class="hero-pill">Banana Boat 20 Lugares · Praia Central de Garopaba - SC</span>
-        </div>
-
-        <div class="hero-txt">
-          <span class="selo-topo">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.1 6.7.9-4.9 4.7 1.2 6.7L12 17.2 6.1 20.4l1.2-6.7L2.4 9l6.7-.9L12 2z"/></svg>
-            32 Anos de Tradição em Garopaba · Edmundo &amp; Mônica
-          </span>
-          <h1>
-            <span class="ln"><span style="--d:0ms">Alegria no mar de</span></span>
-            <span class="ln"><span class="destaque" style="--d:90ms">Garopaba há 32 anos.</span></span>
-          </h1>
-          <p class="hero-sub">Com Edmundo, Mônica e nossa equipe na Praia Central: passeios no <strong>Banana Boat de 20 lugares</strong>, <strong>Disco Boat</strong>, <strong>Passeio de Lancha (20 pés)</strong>, <strong>Pedalinhos com escorregador</strong>, <strong>Caiaques (individual, duplo e triplo)</strong> e <strong>Stand Up Paddle (SUP)</strong> nas águas mansas do Centro Histórico.</p>
-          <div class="hero-acoes">
-            <a href="#agendar" class="btn btn-coral">
-              <span>Reservar com Edmundo e Mônica</span>
-              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
-            </a>
-            <a href="#modalidades" class="btn-linha">Ver as 6 atrações</a>
-          </div>
-          <div class="hero-provas">
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Banana Boat 20 lugares &amp; Disco Boat</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Passeio de Lancha 20 pés &amp; Caiaque Triplo</span>
-            <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>32 anos de segurança e coletes inclusos</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao" id="modalidades">
-      <div class="wrap">
-        <div class="cab rv">
-          <span class="kicker">Nossas 6 atrações na Praia Central</span>
-          <h2>Diversão completa <span class="destaque">na enseada.</span></h2>
-          <p>Saídas direto da areia no canto sul (Centro Histórico / Rancho de Pescadores), onde o mar de Garopaba é calmo, abrigado e perfeito para todas as idades.</p>
-        </div>
-
-        <div class="cards-exp">
-          <article class="card-exp rv">
-            <div class="quadro">
-              <img src="img/banana-boat-20-lugares-panorama.webp" alt="Banana Boat de 20 lugares completo na água com a Igreja Histórica de Garopaba ao fundo — Edmundo Diversões Náuticas" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">20 Lugares</span></div>
-                <h3>Banana Boat 20 Lugares</h3>
-                <p>Nosso famoso Banana Boat para até 20 pessoas! Reúna toda a família e os amigos para um passeio inesquecível pela baía de Garopaba com a Igreja Histórica ao fundo e marinheiro habilitado.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-exp rv" style="--d:60ms">
-            <div class="quadro">
-              <img src="img/disco-boat-garopaba.webp" alt="Disco Boat da Edmundo Diversões Náuticas com família e amigos sorrindo na Praia de Garopaba - SC" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">Pura Adrenalina</span></div>
-                <h3>Disco Boat</h3>
-                <p>Emoção e risadas garantidas em grupo! O Disco Boat gira e desliza pelas águas da baía de Garopaba puxado por lancha, com coletes salva-vidas inclusos para adultos e crianças.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-exp rv" style="--d:120ms">
-            <div class="quadro">
-              <img src="img/lancha-20-pes-garopaba.webp" alt="Lancha de 20 pés FS 200 com motor Mercury da Edmundo Diversões Náuticas em Garopaba - SC" width="2000" height="1496" loading="lazy" decoding="async" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">Lancha 20 Pés</span></div>
-                <h3>Passeio de Lancha (20 Pés)</h3>
-                <p>Passeio exclusivo na nossa lancha de 20 pés pelas águas cristalinas e visuais incríveis da enseada e costa de Garopaba, conduzido com total segurança e experiência.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-exp rv" style="--d:180ms">
-            <div class="quadro">
-              <img src="img/pedalinhos-escorregador-garopaba.webp" alt="Pedalinhos coloridos com escorregador na areia da Praia Central de Garopaba — Edmundo Diversões Náuticas" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">Com Escorregador</span></div>
-                <h3>Pedalinhos com Escorregador</h3>
-                <p>O clássico das férias em Garopaba! Nossos pedalinhos contam com escorregador integrado para a criançada e a família passearem e mergulharem nas águas mansas da enseada.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-exp rv" style="--d:240ms">
-            <div class="quadro">
-              <img src="img/caiaque-triplo-garopaba.webp" alt="Caiaque triplo com 3 lugares nas águas calmas da Praia de Garopaba — Edmundo Diversões Náuticas" width="1920" height="1440" loading="lazy" decoding="async" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">Caiaque Triplo · Duplo · Individual</span></div>
-                <h3>Caiaque Triplo, Duplo e Individual</h3>
-                <p>Contamos com <strong>Caiaque Triplo</strong> (ideal para 3 pessoas remarem juntas em família ou amigos), além de caiaques duplos e individuais nas águas mansas de Garopaba.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="card-exp rv" style="--d:300ms">
-            <div class="quadro">
-              <img src="img/pranchas-sup-caiaques-praia-garopaba.webp" srcset="img/pranchas-sup-caiaques-praia-garopaba-1080.webp 810w, img/pranchas-sup-caiaques-praia-garopaba.webp 1200w" sizes="(min-width: 1040px) 380px, (min-width: 640px) 50vw, 100vw" alt="Pranchas de Stand Up Paddle e caiaques da Edmundo Diversões Náuticas enfileirados na areia da Praia de Garopaba" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 52%" data-par>
-            </div>
-            <div class="card-corpo">
-              <div>
-                <div class="card-topo"><span class="card-tag">Equilíbrio &amp; Lazer</span></div>
-                <h3>Stand Up Paddle (SUP)</h3>
-                <p>Pranchas de SUP grandes e estáveis para remar em pé ou ajoelhado na verdadeira piscina natural que se forma no canto sul da Praia de Garopaba.</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao alt" id="equipe">
-      <div class="wrap equipe-grid">
-        <div class="equipe-foto-box rv">
-          <img src="img/equipe-edmundo-garopaba.webp" alt="Edmundo, Mônica e a equipe de atendimento uniformizada na areia da Praia de Garopaba - SC" width="1816" height="1284" loading="lazy" decoding="async">
-          <div class="equipe-selo">
-            <b>Edmundo, Mônica &amp; Equipe de Atendimento</b>
-            <span>32 anos cuidando da sua família na Praia de Garopaba</span>
-          </div>
-        </div>
-
-        <div class="equipe-texto rv" style="--d:90ms">
-          <span class="kicker">Tradição familiar desde 1994</span>
-          <h2>32 anos de história com <span class="destaque">Edmundo e Mônica.</span></h2>
-          <p>Quem chega na Praia Central de Garopaba já reconhece de longe nossas camisas laranjas na beira d'água. Há <strong>32 anos</strong>, o <strong>Edmundo</strong> e sua esposa <strong>Mônica</strong> recebem gerações de famílias e turistas com carinho, alegria e total atenção à segurança no mar.</p>
-
-          <div class="equipe-logo-card">
-            <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" width="224" height="98" loading="lazy">
-            <div>
-              <b>Edmundo Diversões Náuticas</b>
-              <small>Atendimento direto com Edmundo, Mônica e equipe</small>
-            </div>
-          </div>
-
-          <ul class="equipe-lista">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              <span><strong>32 anos de experiência</strong> conhecendo cada detalhe da enseada e das condições do mar de Garopaba.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              <span><strong>Banana Boat de 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador e Caiaque Triplo</strong> para ninguém da família ou excursão ficar de fora da diversão.</span>
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
-              <span><strong>Atendimento direto na praia e no WhatsApp:</strong> Edmundo <strong>(48) 99965-5708</strong> e Mônica <strong>(48) 99185-7717</strong>.</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="wrap">
-        <div class="pessoas">
-          <figure class="pessoa rv">
-            <div class="pessoa-foto">
-              <img src="img/edmundo-e-monica-garopaba.webp" alt="Edmundo e Mônica, donos da Edmundo Diversões Náuticas em Garopaba - SC" width="875" height="893" loading="lazy" decoding="async" style="object-position:50% 40%">
-            </div>
-            <figcaption>
-              <b>Edmundo e Mônica</b>
-              <span>Donos</span>
-            </figcaption>
-          </figure>
-          <figure class="pessoa rv" style="--d:80ms">
-            <div class="pessoa-foto">
-              <img src="img/nardi-gerente-edmundo-garopaba.webp" srcset="img/nardi-gerente-edmundo-garopaba-1080.webp 864w, img/nardi-gerente-edmundo-garopaba.webp 1449w" sizes="(min-width: 920px) 430px, (min-width: 600px) 50vw, 100vw" alt="Nardi, gerente da Edmundo Diversões Náuticas, com a camisa laranja da equipe na Praia de Garopaba" width="1449" height="1811" loading="lazy" decoding="async" style="object-position:50% 22%">
-            </div>
-            <figcaption>
-              <b>Nardi</b>
-              <span>Gerente</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao" id="galeria">
-      <div class="wrap">
-        <div class="cab rv">
-          <span class="kicker">Fotos reais na Praia Central · @edmundodiversoesnauticas</span>
-          <h2>Momentos reais no mar de <span class="destaque">Garopaba.</span></h2>
-          <p>Registros reais do Banana Boat de 20 lugares, Disco Boat, pedalinhos com escorregador e caiaque em família na enseada.</p>
-        </div>
-
-        <div class="mosaico">
-          <div class="quadro largo rv">
-            <img src="img/banana-boat-20-lugares-panorama.webp" alt="Banana Boat de 20 lugares completo na enseada com a Igreja Matriz do Centro Histórico de Garopaba ao fundo" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Banana Boat de 20 lugares · Centro Histórico de Garopaba</span>
-          </div>
-          <div class="quadro rv" style="--d:70ms">
-            <img src="img/pedalinho-escorregador-mar-garopaba.webp" srcset="img/pedalinho-escorregador-mar-garopaba-1080.webp 1080w, img/pedalinho-escorregador-mar-garopaba.webp 2000w" sizes="(min-width: 760px) 30vw, 50vw" alt="Família acenando no pedalinho com escorregador no mar azul de Garopaba - SC" width="2000" height="1500" loading="lazy" decoding="async" style="object-position:38% 50%" data-par>
-            <span class="legenda">Pedalinho com escorregador no mar</span>
-          </div>
-          <div class="quadro rv" style="--d:140ms">
-            <img src="img/caiaque-transparente-familia-garopaba.webp" srcset="img/caiaque-transparente-familia-garopaba-1080.webp 1080w, img/caiaque-transparente-familia-garopaba.webp 1280w" sizes="(min-width: 760px) 30vw, 50vw" alt="Pai e filho remando no caiaque transparente verde nas águas calmas de Garopaba" width="1280" height="960" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Caiaque transparente em família</span>
-          </div>
-          <div class="quadro rv" style="--d:100ms">
-            <img src="img/disco-boat-garopaba.webp" alt="Família e amigos sorrindo no Disco Boat da Edmundo Diversões Náuticas na Praia de Garopaba" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Disco Boat · Pura adrenalina em grupo</span>
-          </div>
-          <div class="quadro rv" style="--d:170ms">
-            <img src="img/pedalinhos-escorregador-garopaba.webp" alt="Pedalinhos com escorregador alinhados na areia da Praia Central de Garopaba" width="2000" height="1500" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Pedalinhos na Praia Central</span>
-          </div>
-        </div>
-
-        <div class="faixa-numeros">
-          <div class="num-item rv">
-            <strong>32 Anos</strong>
-            <span>De tradição na Praia Central de Garopaba - SC</span>
-          </div>
-          <div class="num-item rv" style="--d:60ms">
-            <strong>20 Lugares</strong>
-            <span>Capacidade do nosso Banana Boat para turmas e famílias</span>
-          </div>
-          <div class="num-item rv" style="--d:120ms">
-            <strong>6 Atrações</strong>
-            <span>Banana Boat, Disco Boat, Lancha 20 pés, Pedalinho, Caiaques e SUP</span>
-          </div>
-          <div class="num-item rv" style="--d:180ms">
-            <strong>100%</strong>
-            <span>Coletes salva-vidas e apoio da equipe do Edmundo e Mônica</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao alt" id="como-funciona">
-      <div class="wrap jornada">
-        <div class="jornada-fotos rv">
-          <div class="quadro">
-            <img src="img/banana-boat-acao-garopaba.webp" alt="Família e amigos no Banana Boat em Garopaba" width="1440" height="2000" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Passeio seguro e divertido</span>
-          </div>
-          <div class="quadro">
-            <img src="img/sup-mormaii-stand-up-garopaba.webp" alt="Pranchas de Stand Up Paddle Mormaii na barraca Stand Up da Edmundo Diversões Náuticas em Garopaba" width="540" height="720" loading="lazy" decoding="async" data-par>
-            <span class="legenda">Barraca Stand Up</span>
-          </div>
-        </div>
-
-        <div>
-          <div class="cab rv">
-            <span class="kicker">Passo a passo na praia</span>
-            <h2>Procure a equipe de <span class="destaque">camisa laranja.</span></h2>
-          </div>
-
-          <div class="rota" id="rotaMergulho">
-            <svg class="trilha" viewBox="0 0 24 100" preserveAspectRatio="none" aria-hidden="true">
-              <path pathLength="1" d="M12 0 C 3 22, 21 38, 12 54 S 3 82, 12 100"/>
-            </svg>
-            <div class="etapa">
-              <small>01 · Recepção com Edmundo e Mônica</small>
-              <h3>Encontro na Praia Central (Centro Histórico)</h3>
-              <p>Ficamos no final da Avenida dos Pescadores, perto do Rancho de Pescadores, onde as águas são protegidas e tranquilas para embarcar direto da areia.</p>
-            </div>
-            <div class="etapa">
-              <small>02 · Coletes e Preparação</small>
-              <h3>Equipamento ajustado para crianças e adultos</h3>
-              <p>Nossa equipe veste e confere os coletes salva-vidas de cada participante e orienta sobre o passeio escolhido.</p>
-            </div>
-            <div class="etapa">
-              <small>03 · Diversão na Enseada de Garopaba</small>
-              <h3>Banana Boat 20 lugares, Disco Boat, Lancha 20 pés, Pedalinho, Caiaque ou SUP</h3>
-              <p>Viva a emoção do Banana Boat, do Disco Boat e do Passeio de Lancha com a galera ou curta o mar calmo de pedalinho com escorregador, caiaque e Stand Up Paddle.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao deep" id="agendar">
-      <div class="wrap">
-        <div class="cab rv">
-          <span class="kicker">Fale direto com Edmundo e Mônica</span>
-          <h2>Simule seu passeio <span class="destaque">no WhatsApp.</span></h2>
-          <p>Escolha a atração abaixo e envie mensagem pronta para consultar valores, horário das saídas do Banana Boat, Disco Boat, Passeio de Lancha e condições do mar.</p>
-        </div>
-
-        <div class="sim-grid rv">
-          <div style="display:grid;gap:20px;">
-            <div class="campo">
-              <span class="rotulo">1. Qual atração você quer curtir?</span>
-              <div class="chips" data-g="atividade">
-                <button type="button" class="chip active" data-v="Passeio de Banana Boat (20 lugares)">Banana Boat (20 lugares)</button>
-                <button type="button" class="chip" data-v="Disco Boat">Disco Boat</button>
-                <button type="button" class="chip" data-v="Passeio de Lancha (20 pés)">Passeio de Lancha (20 pés)</button>
-                <button type="button" class="chip" data-v="Aluguel de Pedalinho com Escorregador">Pedalinhos com Escorregador</button>
-                <button type="button" class="chip" data-v="Aluguel de Caiaque Triplo">Caiaque Triplo</button>
-                <button type="button" class="chip" data-v="Aluguel de Caiaque (Individual / Duplo)">Caiaque Duplo / Individual</button>
-                <button type="button" class="chip" data-v="Stand Up Paddle (SUP)">Stand Up Paddle (SUP)</button>
-                <button type="button" class="chip" data-v="Combo Família / Turma (Banana Boat + Disco Boat + Lancha + Pedalinho + Caiaque)">Combo Turma</button>
-              </div>
-            </div>
-
-            <div class="campo">
-              <span class="rotulo">2. Quem vai com você?</span>
-              <div class="chips" data-g="perfil">
-                <button type="button" class="chip active" data-v="Família (adultos e crianças)">Em família</button>
-                <button type="button" class="chip" data-v="Grupo de amigos / Excursão">Grupo de amigos</button>
-                <button type="button" class="chip" data-v="Casal / Individual">Casal / Individual</button>
-              </div>
-            </div>
-
-            <div class="linha-cont">
-              <div class="campo">
-                <span class="rotulo">3. Quantas pessoas?</span>
-                <div class="caixa-cont">
-                  <span>Pessoas</span>
-                  <div class="cont-botoes">
-                    <button type="button" class="c-btn" id="menosPessoas" aria-label="Diminuir número de pessoas">−</button>
-                    <b class="c-val" id="numPessoas">4</b>
-                    <button type="button" class="c-btn" id="maisPessoas" aria-label="Aumentar número de pessoas">+</button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="campo">
-                <label class="rotulo" for="dataPasseio">4. Dia desejado</label>
-                <input type="date" id="dataPasseio" class="inp-data">
-              </div>
-            </div>
-          </div>
-
-          <div class="campo">
-            <span class="rotulo">Prévia da sua mensagem</span>
-            <div class="previa-box" id="previaMsg" aria-live="polite"></div>
-            <a href="https://wa.me/5548999655708" target="_blank" rel="noopener" id="btnEnviarWa" class="btn btn-sol">
-              <span>WhatsApp Edmundo (48) 99965-5708</span>
-              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
-            </a>
-            <a href="https://wa.me/5548991857717" target="_blank" rel="noopener" id="btnEnviarWaMonica" class="btn btn-coral">
-              <span>WhatsApp Mônica (48) 99185-7717</span>
-              <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="secao" id="localizacao">
-      <div class="wrap">
-        <div class="loc-grid">
-          <div class="loc-card rv">
-            <span class="kicker">Onde estamos em Garopaba - SC</span>
-            <h2>Praia Central · Centro Histórico</h2>
-            <ul class="loc-lista">
-              <li>
-                <small>Ponto Oficial na Areia (Há 32 Anos)</small>
-                <b>Final da Avenida dos Pescadores — Praia Central de Garopaba</b>
-                <span>Próximo ao Rancho de Pescadores · Centro Histórico, Garopaba - SC, CEP 88495-000</span>
-              </li>
-              <li>
-                <small>Responsáveis &amp; Atendimento Familiar</small>
-                <b>Edmundo &amp; Mônica (donos) · Nardi (gerente)</b>
-                <span>Procure a equipe de camisa laranja na beira da praia</span>
-              </li>
-              <li>
-                <small>WhatsApp &amp; Telefones (Edmundo e Mônica)</small>
-                <b>Edmundo: (48) 99965-5708 · Mônica: (48) 99185-7717</b>
-                <span>Instagram oficial: @edmundodiversoesnauticas</span>
-              </li>
-            </ul>
-            <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;">
-              <a href="https://www.google.com/maps/place/?q=place_id:ChIJswRMh1zRJpURLXp5Z4dqQbs" target="_blank" rel="noopener" class="btn btn-coral">
-                <span>Abrir no Google Maps</span>
-                <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></i>
-              </a>
-              <a href="https://wa.me/5548991857717" target="_blank" rel="noopener" class="btn-linha">WhatsApp Mônica (48) 99185-7717</a>
-              <a href="https://www.instagram.com/edmundodiversoesnauticas/" target="_blank" rel="noopener" class="btn-linha">Ver Instagram</a>
-            </div>
-          </div>
-
-          <div class="mapa rv" style="--d:90ms">
-            <iframe title="Mapa de Edmundo Diversões Náuticas na Praia de Garopaba - SC" src="https://www.google.com/maps?q=Avenida+dos+Pescadores,+Garopaba+-+SC&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
-
-        <div class="faq" id="duvidas">
-          <details class="rv" open>
-            <summary><span>Há quanto tempo o Edmundo e a Mônica trabalham na Praia de Garopaba?</span><i></i></summary>
-            <p>Há 32 anos! O Edmundo, a esposa Mônica e toda a equipe de camisa laranja são tradição na Praia Central de Garopaba, garantindo diversão segura para famílias e turistas.</p>
-          </details>
-          <details class="rv" style="--d:60ms">
-            <summary><span>Quantos lugares tem o Banana Boat?</span><i></i></summary>
-            <p>Nosso Banana Boat comporta até 20 lugares! Dá para levar a família inteira ou a turma de amigos junta no mesmo passeio, ou entrar nas saídas que formamos na praia.</p>
-          </details>
-          <details class="rv" style="--d:120ms">
-            <summary><span>Quais são todas as 6 atrações disponíveis na praia?</span><i></i></summary>
-            <p>Contamos com <strong>Banana Boat de 20 lugares</strong>, <strong>Disco Boat</strong>, <strong>Passeio de Lancha (20 pés)</strong>, <strong>Pedalinhos com escorregador</strong>, <strong>Caiaques (Individual, Duplo e Triplo)</strong> e <strong>Stand Up Paddle (SUP)</strong>, todos com coletes salva-vidas inclusos.</p>
-          </details>
-          <details class="rv" style="--d:180ms">
-            <summary><span>Como reservar ou consultar valores pelo WhatsApp?</span><i></i></summary>
-            <p>É só chamar direto no WhatsApp do Edmundo <strong>(48) 99965-5708</strong> ou no WhatsApp da Mônica <strong>(48) 99185-7717</strong>, ou chegar no nosso ponto na areia, no final da Avenida dos Pescadores (Centro Histórico).</p>
-          </details>
-          <details class="rv" style="--d:240ms">
-            <summary><span>Onde fica o ponto do Edmundo na praia?</span><i></i></summary>
-            <p>No final da Avenida dos Pescadores, na areia da Praia Central de Garopaba, perto do Rancho de Pescadores e do Centro Histórico. É só procurar a equipe de camisa laranja.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="rodape">
-    <div class="wrap">
-      <div class="rod-grid">
-        <div>
-          <img src="img/logo-edmundo-transparente.webp" alt="Logo Edmundo Diversões Náuticas Garopaba-SC" class="rod-logo" width="340" height="150" loading="lazy">
-          <p>Há 32 anos na Praia Central de Garopaba - SC. Atendimento familiar com Edmundo, Mônica e equipe: Banana Boat de 20 lugares, Disco Boat, Passeio de Lancha (20 pés), Pedalinhos com escorregador, Caiaque Triplo, Duplo e Individual, e Stand Up Paddle (SUP).</p>
-        </div>
-        <div class="rod-col">
-          <h4>Contatos &amp; Redes</h4>
-          <ul>
-            <li><a href="https://wa.me/5548999655708" target="_blank" rel="noopener">WhatsApp Edmundo: (48) 99965-5708</a></li>
-            <li><a href="https://wa.me/5548991857717" target="_blank" rel="noopener">WhatsApp Mônica: (48) 99185-7717</a></li>
-            <li><a href="https://www.instagram.com/edmundodiversoesnauticas/" target="_blank" rel="noopener">Instagram @edmundodiversoesnauticas</a></li>
-          </ul>
-        </div>
-        <div class="rod-col">
-          <h4>Localização</h4>
-          <ul>
-            <li><a href="https://www.google.com/maps/place/?q=place_id:ChIJswRMh1zRJpURLXp5Z4dqQbs" target="_blank" rel="noopener">Final da Avenida dos Pescadores · Praia Central (Centro Histórico / Rancho de Pescadores) — Garopaba, SC</a></li>
-          </ul>
-        </div>
-      </div>
-      <p class="rod-nota">© 2026 Edmundo Diversões Náuticas (Edmundo &amp; Mônica · 32 Anos de Tradição) · Garopaba - SC · Todos os direitos reservados.</p>
+<section class="nums" aria-label="Em números">
+  <div class="wrap">
+    <div class="nums-g">
+      <div class="num rev"><b data-n="32">32</b><span>anos de tradição</span></div>
+      <div class="num rev"><b data-n="6">6</b><span>atrações no mar</span></div>
+      <div class="num rev"><b data-n="20">20</b><span>lugares no Banana Boat</span></div>
+      <div class="num rev"><b>100%</b><span>com coletes inclusos</span></div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <a href="https://wa.me/5548999655708?text=Ol%C3%A1%2C%20Edmundo%20e%20M%C3%B4nica!%20Vi%20o%20site%20da%20Edmundo%20Divers%C3%B5es%20N%C3%A1uticas%20e%20quero%20consultar%20o%20Banana%20Boat%20de%2020%20lugares%2C%20Pedalinho%2C%20Caiaque%20ou%20SUP%20em%20Garopaba." target="_blank" rel="noopener" class="zap" id="zapBtn" aria-label="Chamar Edmundo e Mônica no WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3Z"/></svg>
-  </a>
+<section class="sec escuro" id="atracoes">
+  <div class="wrap">
+    <span class="kicker rev">Atrações</span>
+    <h2 class="rev">Seis jeitos de curtir <em>o mar.</em></h2>
+    <p class="sub rev">Águas calmas e abrigadas, boas para todas as idades.</p>
 
-  <script>
-    (function () {
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    <div class="paradas">
+      <article class="parada rev">
+        <div class="ph"><picture><img src="img/banana-boat-20-lugares-panorama.webp" alt="Banana Boat de 20 lugares com a turma e a igreja ao fundo" width="2000" height="1500" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Banana Boat</h3><p>Até 20 pessoas no mesmo passeio.</p><button type="button" data-atr="Banana Boat">Incluir no passeio</button></div>
+      </article>
+      <article class="parada rev">
+        <div class="ph"><picture><img src="img/disco-boat-garopaba.webp" alt="Grupo no Disco Boat sorrindo na praia" width="2000" height="1500" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Disco Boat</h3><p>Gira, desliza e arranca risada.</p><button type="button" data-atr="Disco Boat">Incluir no passeio</button></div>
+      </article>
+      <article class="parada rev">
+        <div class="ph"><picture><img src="img/lancha-20-pes-garopaba.webp" alt="Lancha de 20 pés da Edmundo Diversões Náuticas" width="2000" height="1496" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Passeio de lancha</h3><p>Lancha de 20 pés pela costa de Garopaba.</p><button type="button" data-atr="Passeio de lancha">Incluir no passeio</button></div>
+      </article>
+      <article class="parada rev">
+        <div class="ph"><picture><source srcset="img/pedalinho-escorregador-mar-garopaba-1080.webp 1080w, img/pedalinho-escorregador-mar-garopaba.webp 2000w" sizes="(min-width:900px) 34vw, 90vw" type="image/webp"><img src="img/pedalinho-escorregador-mar-garopaba-1080.webp" alt="Pedalinho com escorregador no mar de Garopaba" width="2000" height="1500" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Pedalinho com escorregador</h3><p>A alegria da criançada e da família.</p><button type="button" data-atr="Pedalinho com escorregador">Incluir no passeio</button></div>
+      </article>
+      <article class="parada rev">
+        <div class="ph"><picture><source srcset="img/caiaque-transparente-familia-garopaba-1080.webp 1080w, img/caiaque-transparente-familia-garopaba.webp 1280w" sizes="(min-width:900px) 34vw, 90vw" type="image/webp"><img src="img/caiaque-transparente-familia-garopaba-1080.webp" alt="Pai e filho remando em caiaque transparente" width="1280" height="960" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Caiaque</h3><p>Individual, duplo ou triplo.</p><button type="button" data-atr="Caiaque">Incluir no passeio</button></div>
+      </article>
+      <article class="parada rev">
+        <div class="ph"><picture><source srcset="img/pranchas-sup-caiaques-praia-garopaba-1080.webp 810w, img/pranchas-sup-caiaques-praia-garopaba.webp 1200w" sizes="(min-width:900px) 34vw, 90vw" type="image/webp"><img src="img/pranchas-sup-caiaques-praia-garopaba.webp" alt="Pranchas de stand up paddle e caiaques na areia" width="1200" height="1600" loading="lazy" decoding="async" style="object-position:50% 60%"></picture></div>
+        <div class="t"><h3>Stand Up Paddle</h3><p>Remar em pé na piscina natural.</p><button type="button" data-atr="Stand Up Paddle">Incluir no passeio</button></div>
+      </article>
+    </div>
+  </div>
+</section>
 
-      // Simulador -> WhatsApp (5548999655708)
-      var pessoas = 4;
-      var dataInput = document.getElementById('dataPasseio');
-      function ativo(g) {
-        var el = document.querySelector('[data-g="' + g + '"] .chip.active');
-        return el ? el.getAttribute('data-v') : '';
-      }
-      function formatarData(v) {
-        if (!v) return 'A combinar';
-        var p = v.split('-');
-        return p.length === 3 ? (p[2] + '/' + p[1] + '/' + p[0]) : v;
-      }
-      function montarMensagem() {
-        var pTxt = pessoas + (pessoas === 1 ? ' pessoa' : ' pessoas');
-        return 'Olá, Edmundo e Mônica! Vim pelo site da *Edmundo Diversões Náuticas* em Garopaba e gostaria de consultar:\n\n' +
-          '*Atração:* ' + ativo('atividade') + '\n' +
-          '*Perfil:* ' + ativo('perfil') + '\n' +
-          '*Grupo:* ' + pTxt + '\n' +
-          '*Data:* ' + formatarData(dataInput.value);
-      }
-      function atualizarSimulador() {
-        var msg = montarMensagem();
-        document.getElementById('previaMsg').textContent = msg.replace(/\*/g, '');
-        document.getElementById('btnEnviarWa').href = 'https://wa.me/5548999655708?text=' + encodeURIComponent(msg);
-        var btnMonica = document.getElementById('btnEnviarWaMonica');
-        if (btnMonica) btnMonica.href = 'https://wa.me/5548991857717?text=' + encodeURIComponent(msg);
-      }
-      document.querySelectorAll('.chips').forEach(function (grupo) {
-        grupo.addEventListener('click', function (e) {
-          var b = e.target.closest('.chip');
-          if (!b) return;
-          grupo.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('active'); });
-          b.classList.add('active');
-          atualizarSimulador();
-        });
-      });
-      document.getElementById('menosPessoas').addEventListener('click', function () {
-        pessoas = Math.max(1, pessoas - 1);
-        document.getElementById('numPessoas').textContent = pessoas;
-        atualizarSimulador();
-      });
-      document.getElementById('maisPessoas').addEventListener('click', function () {
-        pessoas = Math.min(30, pessoas + 1);
-        document.getElementById('numPessoas').textContent = pessoas;
-        atualizarSimulador();
-      });
-      dataInput.addEventListener('change', atualizarSimulador);
-      atualizarSimulador();
+<section class="sec" id="monte">
+  <div class="wrap">
+    <span class="kicker rev">Monte o seu</span>
+    <h2 class="rev">Escolha e mande <em>pronto.</em></h2>
+    <p class="sub rev">A mensagem vai preenchida para o WhatsApp.</p>
+    <div class="plan">
+      <div class="plan-box rev">
+        <span class="lbl">1. Atrações</span>
+        <div class="opcoes" id="gAtr">
+          <button type="button" class="op" aria-pressed="true" data-v="Banana Boat"><span>Banana Boat</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+          <button type="button" class="op" aria-pressed="false" data-v="Disco Boat"><span>Disco Boat</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+          <button type="button" class="op" aria-pressed="false" data-v="Passeio de lancha"><span>Passeio de lancha</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+          <button type="button" class="op" aria-pressed="false" data-v="Pedalinho com escorregador"><span>Pedalinho com escorregador</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+          <button type="button" class="op" aria-pressed="false" data-v="Caiaque"><span>Caiaque</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+          <button type="button" class="op" aria-pressed="false" data-v="Stand Up Paddle"><span>Stand Up Paddle</span><span class="ck"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.6 2.6L10 3.4"/></svg></span></button>
+        </div>
+        <span class="lbl">2. Quem vai</span>
+        <div class="cont">
+          <div class="cnt"><span>Adultos</span><div><button type="button" data-c="adultos" data-d="-1" aria-label="Menos adultos">−</button><output id="o-adultos">2</output><button type="button" data-c="adultos" data-d="1" aria-label="Mais adultos">+</button></div></div>
+          <div class="cnt"><span>Crianças</span><div><button type="button" data-c="criancas" data-d="-1" aria-label="Menos crianças">−</button><output id="o-criancas">0</output><button type="button" data-c="criancas" data-d="1" aria-label="Mais crianças">+</button></div></div>
+        </div>
+        <span class="lbl">3. Data (opcional)</span>
+        <input type="date" class="in-date" id="data" aria-label="Data do passeio">
+      </div>
+      <aside class="resumo rev">
+        <h3>Sua mensagem</h3>
+        <div class="msg" id="msg" aria-live="polite"></div>
+        <a href="#" class="btn sol" id="enviarEdmundo" target="_blank" rel="noopener">Enviar para o Edmundo</a>
+        <a href="#" class="btn claro" id="enviarMonica" target="_blank" rel="noopener">Enviar para a Mônica</a>
+      </aside>
+    </div>
+  </div>
+</section>
 
-      // Scroll: barra de progresso + auto-hide do topo + parallax leve + linha da rota
-      var topoWrap = document.getElementById('topoWrap');
-      var progFill = document.getElementById('progFill');
-      var pars = Array.prototype.slice.call(document.querySelectorAll('[data-par]'));
-      var rota = document.getElementById('rotaMergulho');
-      var rotaPath = rota ? rota.querySelector('path') : null;
-      var etapas = rota ? Array.prototype.slice.call(rota.querySelectorAll('.etapa')) : [];
-      var lastY = window.scrollY;
-      var ticking = false;
+<section class="sec papel" id="equipe">
+  <div class="wrap">
+    <span class="kicker rev">Equipe</span>
+    <h2 class="rev">Quem recebe <em>você.</em></h2>
+    <p class="sub rev">Procure a camisa laranja na beira da praia.</p>
+    <div class="pessoas">
+      <article class="pessoa rev">
+        <div class="ph"><picture><img src="img/edmundo-e-monica-garopaba.webp" alt="Edmundo e Mônica, donos da Edmundo Diversões Náuticas" width="875" height="893" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Edmundo e Mônica</h3><small>Donos</small></div>
+      </article>
+      <article class="pessoa nardi rev">
+        <div class="ph"><picture><source srcset="img/nardi-gerente-edmundo-garopaba-1080.webp 864w, img/nardi-gerente-edmundo-garopaba.webp 1449w" sizes="(min-width:700px) 370px, 92vw" type="image/webp"><img src="img/nardi-gerente-edmundo-garopaba.webp" alt="Nardi, gerente da Edmundo Diversões Náuticas, de camisa laranja" width="1449" height="1811" loading="lazy" decoding="async"></picture></div>
+        <div class="t"><h3>Nardi</h3><small>Gerente</small></div>
+      </article>
+    </div>
+  </div>
+</section>
 
-      function onScrollFrame() {
-        var y = window.scrollY;
-        var vh = window.innerHeight;
-        var docH = Math.max(1, document.documentElement.scrollHeight - vh);
-        var prog = Math.min(1, Math.max(0, y / docH));
-        progFill.style.transform = 'scaleX(' + prog.toFixed(4) + ')';
+<section class="sec" id="fotos">
+  <div class="wrap">
+    <span class="kicker rev">Fotos</span>
+    <h2 class="rev">Garopaba <em>de perto.</em></h2>
+    <div class="gal">
+      <figure class="rev"><picture><img src="img/banana-boat-acao-garopaba.webp" alt="Família no Banana Boat em velocidade" width="1440" height="2000" loading="lazy" decoding="async"></picture></figure>
+      <figure class="rev"><picture><img src="img/equipe-edmundo-garopaba.webp" alt="Equipe de camisa laranja na Praia de Garopaba" width="1816" height="1284" loading="lazy" decoding="async" style="object-position:50% 40%"></picture></figure>
+      <figure class="rev"><picture><img src="img/enseada-igreja-garopaba.webp" alt="Banana Boat na enseada com a igreja ao fundo" width="1440" height="1675" loading="lazy" decoding="async"></picture></figure>
+      <figure class="rev"><picture><img src="img/pedalinhos-escorregador-garopaba.webp" alt="Pedalinhos coloridos com escorregador na areia" width="2000" height="1500" loading="lazy" decoding="async"></picture></figure>
+      <figure class="rev"><picture><img src="img/caiaque-triplo-garopaba.webp" alt="Caiaque triplo nas águas calmas de Garopaba" width="1920" height="1440" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </div>
+</section>
 
-        if (y > lastY + 8 && y > 160) topoWrap.classList.add('hide');
-        else if (y < lastY - 8 || y < 160) topoWrap.classList.remove('hide');
-        lastY = y;
+<section class="sec escuro" id="local">
+  <div class="wrap">
+    <span class="kicker rev">Onde estamos</span>
+    <h2 class="rev">Final da Av. dos <em>Pescadores.</em></h2>
+    <div class="emb-g">
+      <div class="info rev">
+        <div><small>Onde</small><b>Final da Avenida dos Pescadores, Praia Central de Garopaba · Centro Histórico, Garopaba - SC</b></div>
+        <div><small>WhatsApp</small><b>Edmundo (48) 99965-5708 · Mônica (48) 99185-7717</b></div>
+        <div><small>Instagram</small><b>@edmundodiversoesnauticas</b></div>
+        <a class="btn" href="https://www.google.com/maps/place/?q=place_id:ChIJswRMh1zRJpURLXp5Z4dqQbs" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
+      </div>
+      <div class="mapa rev" id="mapa"><button type="button" class="btn claro" id="verMapa">Ver o mapa aqui</button></div>
+    </div>
+    <div class="faq">
+      <details class="rev"><summary>Há quanto tempo vocês atuam?</summary><p>Há 32 anos na Praia Central de Garopaba, com atendimento da família.</p></details>
+      <details class="rev"><summary>Quantos lugares tem o Banana Boat?</summary><p>Até 20 lugares. Dá para levar a família e a turma toda.</p></details>
+      <details class="rev"><summary>Como eu reservo?</summary><p>Pelo WhatsApp do Edmundo ou da Mônica, ou direto na praia com a equipe de camisa laranja.</p></details>
+    </div>
+  </div>
+</section>
 
-        if (!reduce) {
-          pars.forEach(function (img) {
-            var box = img.closest('.quadro');
-            if (!box) return;
-            var r = box.getBoundingClientRect();
-            if (r.bottom < 0 || r.top > vh) return;
-            var p = (r.top + r.height / 2 - vh / 2) / (vh + r.height);
-            img.style.transform = 'translate3d(0,' + (p * -11).toFixed(2) + '%,0)';
-          });
+<section class="final">
+  <picture><img src="img/entardecer-enseada.webp" alt="" width="2560" height="1440" loading="lazy" decoding="async"></picture>
+  <div class="wrap rev">
+    <h2>Seu dia no mar <em>começa aqui.</em></h2>
+    <p>Chame o Edmundo no WhatsApp.</p>
+    <a href="https://wa.me/5548999655708?text=Ol%C3%A1%2C%20Edmundo!%20Vim%20pelo%20site%20e%20quero%20agendar%20um%20passeio%20em%20Garopaba." class="btn claro" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+  </div>
+</section>
+</main>
 
-          if (rota && rotaPath) {
-            var rr = rota.getBoundingClientRect();
-            var k = Math.min(1, Math.max(0, (vh * 0.78 - rr.top) / (rr.height + vh * 0.2)));
-            rotaPath.style.setProperty('--draw', (1 - k).toFixed(3));
-            etapas.forEach(function (et, idx) {
-              et.classList.toggle('on', k > (idx + 0.18) / etapas.length);
-            });
-          }
-        }
-        ticking = false;
-      }
+<footer>
+  <div class="wrap">
+    <div><strong>Edmundo Diversões Náuticas</strong> · Final da Avenida dos Pescadores, Praia Central, Garopaba - SC</div>
+    <div>WhatsApp <a href="https://wa.me/5548999655708" target="_blank" rel="noopener">(48) 99965-5708</a> · <a href="https://wa.me/5548991857717" target="_blank" rel="noopener">(48) 99185-7717</a> · <a href="https://www.instagram.com/edmundodiversoesnauticas/" target="_blank" rel="noopener">@edmundodiversoesnauticas</a></div>
+  </div>
+</footer>
 
-      window.addEventListener('scroll', function () {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(onScrollFrame);
-        }
-      }, { passive: true });
-      onScrollFrame();
-      if (reduce) etapas.forEach(function (et) { et.classList.add('on'); });
+<a class="wa" id="wa" href="https://wa.me/5548999655708" target="_blank" rel="noopener" aria-label="Chamar o Edmundo no WhatsApp">
+  <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C8.84 3 3 8.83 3 16c0 2.3.6 4.55 1.74 6.52L3 29l6.65-1.7A13 13 0 0 0 16.04 29C23.2 29 29 23.17 29 16S23.2 3 16.04 3zm0 23.6c-1.95 0-3.86-.53-5.53-1.52l-.4-.24-3.95 1.01 1.05-3.84-.26-.4A10.5 10.5 0 0 1 5.4 16c0-5.8 4.76-10.55 10.64-10.55S26.6 10.2 26.6 16 21.9 26.6 16.04 26.6zm5.8-7.9c-.32-.16-1.88-.93-2.17-1.03-.29-.1-.5-.16-.72.16-.2.32-.82 1.03-1 1.24-.19.2-.37.23-.7.08-.32-.16-1.35-.5-2.57-1.6-.95-.84-1.6-1.9-1.78-2.2-.19-.32-.02-.5.14-.65.14-.14.32-.37.48-.56.16-.19.2-.32.32-.54.1-.2.05-.4-.03-.56-.08-.16-.72-1.74-1-2.38-.26-.62-.52-.54-.72-.55h-.6c-.2 0-.56.08-.85.4-.3.32-1.12 1.1-1.12 2.68s1.15 3.1 1.3 3.32c.16.2 2.26 3.45 5.47 4.83.76.33 1.36.52 1.82.67.77.24 1.47.2 2.02.12.62-.09 1.88-.77 2.14-1.51.27-.75.27-1.38.19-1.51-.08-.14-.3-.22-.62-.38z"/></svg>
+</a>
 
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('in');
-            io.unobserve(entry.target);
-          });
-        }, { threshold: 0.14, rootMargin: '0px 0px -5% 0px' });
-        document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+<script>
+(function(){
+  var N_ED='5548999655708', N_MO='5548991857717';
+  var d=document, w=window;
+  w.addEventListener('load',function(){setTimeout(function(){d.documentElement.classList.add('loaded')},350)});
+  setTimeout(function(){d.documentElement.classList.add('loaded')},1600);
 
-        var zapBtn = document.getElementById('zapBtn');
-        var agendarSec = document.getElementById('agendar');
-        var zapIo = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            zapBtn.classList.toggle('away', entry.isIntersecting);
-          });
-        }, { threshold: 0.25 });
-        if (agendarSec) zapIo.observe(agendarSec);
-      } else {
-        document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
-      }
-    })();
-  </script>
+  /* topo some ao descer + progresso */
+  var top=d.getElementById('top'), prog=d.getElementById('prog'), last=0, tick=false;
+  function onScroll(){
+    var y=w.scrollY||0, h=d.documentElement.scrollHeight-w.innerHeight;
+    prog.style.transform='scaleX('+(h>0?Math.min(1,y/h):0)+')';
+    if(y>120 && y>last+4) top.classList.add('hide'); else if(y<last-4||y<120) top.classList.remove('hide');
+    last=y; tick=false;
+  }
+  w.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+
+  /* revelar + contadores */
+  var io=('IntersectionObserver' in w)?new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in'); io.unobserve(e.target);
+      var n=e.target.querySelector&&e.target.querySelector('[data-n]');
+      if(n) count(n);
+    });
+  },{threshold:.15,rootMargin:'0px 0px -6% 0px'}):null;
+  d.querySelectorAll('.rev').forEach(function(el){ io?io.observe(el):el.classList.add('in') });
+  function count(el){
+    var t=parseFloat(el.getAttribute('data-n')), s=performance.now(), dur=900;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    (function step(now){
+      var p=Math.min(1,(now-s)/dur), v=t*(1-Math.pow(1-p,3));
+      el.textContent=Math.round(v);
+      if(p<1) requestAnimationFrame(step);
+    })(s);
+  }
+
+  /* simulador */
+  var st={atr:['Banana Boat'],adultos:2,criancas:0};
+  var gAtr=d.getElementById('gAtr'), msg=d.getElementById('msg'), envE=d.getElementById('enviarEdmundo'), envM=d.getElementById('enviarMonica'), dt=d.getElementById('data');
+  function plural(n,a,b){return n+' '+(n===1?a:b)}
+  function build(){
+    var q=[]; if(st.adultos) q.push(plural(st.adultos,'adulto','adultos')); if(st.criancas) q.push(plural(st.criancas,'criança','crianças'));
+    var t='Olá! Vim pelo site. Somos '+(q.join(' e ')||'1 adulto');
+    t+=st.atr.length?' e queremos: '+st.atr.join(', ').replace(/, ([^,]*)$/,' e $1'):' e queremos saber das atrações';
+    if(dt.value){var p=dt.value.split('-'); t+=', no dia '+p[2]+'/'+p[1]}
+    t+='.';
+    msg.textContent=t; var q2='?text='+encodeURIComponent(t);
+    envE.href='https://wa.me/'+N_ED+q2; envM.href='https://wa.me/'+N_MO+q2;
+  }
+  function sync(){st.atr=[].map.call(gAtr.querySelectorAll('.op[aria-pressed="true"]'),function(x){return x.getAttribute('data-v')}); build()}
+  gAtr.addEventListener('click',function(e){var b=e.target.closest('.op'); if(!b) return;
+    b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true'); sync()});
+  d.querySelectorAll('[data-c]').forEach(function(b){b.addEventListener('click',function(){
+    var k=b.getAttribute('data-c'), v=st[k]+ +b.getAttribute('data-d'); st[k]=Math.max(k==='adultos'?1:0,Math.min(40,v)); d.getElementById('o-'+k).textContent=st[k]; build()})});
+  dt.addEventListener('change',build);
+  var hoje=new Date(); dt.min=hoje.getFullYear()+'-'+String(hoje.getMonth()+1).padStart(2,'0')+'-'+String(hoje.getDate()).padStart(2,'0');
+  d.querySelectorAll('[data-atr]').forEach(function(b){b.addEventListener('click',function(){
+    var btn=gAtr.querySelector('.op[data-v="'+b.getAttribute('data-atr')+'"]');
+    if(btn&&btn.getAttribute('aria-pressed')!=='true'){btn.setAttribute('aria-pressed','true'); sync()}
+    d.getElementById('monte').scrollIntoView({behavior:'smooth'})})});
+  build();
+
+  /* mapa só quando pedir */
+  d.getElementById('verMapa').addEventListener('click',function(){
+    var f=d.createElement('iframe'); f.title='Mapa da Edmundo Diversões Náuticas, final da Avenida dos Pescadores, Garopaba'; f.loading='lazy'; f.referrerPolicy='no-referrer-when-downgrade';
+    f.src='https://www.google.com/maps?q=-28.0219,-48.6136&hl=pt-BR&z=16&output=embed';
+    var m=d.getElementById('mapa'); m.innerHTML=''; m.appendChild(f);
+  });
+})();
+</script>
 </body>
 </html>
