@@ -180,24 +180,21 @@
     @keyframes introOut { to { opacity: 0; transform: translateY(-4%); visibility: hidden; } }
 
     /* ---------- Topo fixo com a Logo Oficial ---------- */
-    .topo-wrap { position: fixed; top: 10px; left: 0; right: 0; z-index: 90; padding: 0 10px; transition: transform 0.38s var(--ease); pointer-events: none; }
+    .topo-wrap { position: fixed; top: 10px; left: 0; right: 0; z-index: 90; padding: 0 12px; transition: transform 0.38s var(--ease); pointer-events: none; }
     .topo-wrap.hide { transform: translateY(-145%); }
-    .topo { pointer-events: auto; max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 6px; min-height: 58px; padding: 6px 8px 6px 8px; border-radius: 999px; background: rgba(246, 248, 249, 0.96); border: 1px solid var(--line); box-shadow: 0 12px 28px -18px rgba(6, 35, 56, 0.38); backdrop-filter: blur(10px); overflow: hidden; }
-    .marca { display: flex; align-items: center; gap: 8px; min-height: 44px; min-width: 0; flex: 1 1 auto; }
-    .marca-logo { width: 54px; height: 28px; border-radius: 7px; object-fit: cover; flex: 0 0 auto; border: 1px solid rgba(6, 35, 56, 0.15); }
-    .marca-txt { min-width: 0; flex: 1 1 auto; }
-    .marca-txt b { display: block; font: 800 clamp(11.5px, 3.3vw, 15.5px)/1.12 var(--display); letter-spacing: -0.02em; color: var(--ink); }
+    .topo { pointer-events: auto; max-width: 1220px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 58px; padding: 6px 8px 6px 18px; border-radius: 999px; background: rgba(246, 248, 249, 0.96); border: 1px solid var(--line); box-shadow: 0 12px 28px -18px rgba(6, 35, 56, 0.38); backdrop-filter: blur(10px); }
+    .marca { display: inline-flex; align-items: center; min-height: 44px; min-width: 0; flex: 1 1 auto; }
+    .marca-txt { min-width: 0; }
+    .marca-txt b { display: block; font: 800 clamp(14.5px, 4.1vw, 18px)/1.12 var(--display); letter-spacing: -0.02em; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .marca-txt b span { color: var(--coral); }
-    .marca-txt small { display: block; font: 700 clamp(9px, 2.35vw, 10.5px)/1.15 var(--sans); letter-spacing: 0.04em; text-transform: uppercase; color: var(--soft); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .menu { display: none; align-items: center; gap: 24px; font: 600 14.5px/1 var(--sans); color: var(--soft); flex: 0 0 auto; }
     .menu a { display: inline-flex; align-items: center; min-height: 44px; transition: color 0.2s; }
     .menu a:hover { color: var(--coral); }
-    .topo-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 12px; border-radius: 999px; background: var(--coral); color: #fff; font: 700 12.5px/1 var(--sans); flex: 0 0 auto; white-space: nowrap; transition: transform 0.2s var(--ease), background 0.2s; }
+    .topo-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 42px; padding: 0 16px; border-radius: 999px; background: var(--coral); color: #fff; font: 700 13.5px/1 var(--sans); flex: 0 0 auto; white-space: nowrap; transition: transform 0.2s var(--ease), background 0.2s; }
     .topo-cta:active { transform: scale(0.97); }
     @media (min-width: 900px) {
       .menu { display: flex; }
-      .topo { min-height: 64px; gap: 12px; padding: 0 10px 0 12px; }
-      .marca-logo { width: 84px; height: 40px; border-radius: 10px; }
+      .topo { min-height: 64px; gap: 16px; padding: 0 10px 0 22px; }
       .topo-cta { min-height: 44px; padding: 0 18px; font-size: 14px; }
     }
 
@@ -432,10 +429,8 @@
   <div class="topo-wrap" id="topoWrap">
     <header class="topo">
       <a href="#inicio" class="marca" aria-label="Edmundo Diversões Náuticas — início">
-        <img src="img/logo-edmundo-oficial.webp" alt="Logo Edmundo Diversões Náuticas" class="marca-logo" width="176" height="84">
         <div class="marca-txt">
           <b>Edmundo <span>Diversões Náuticas</span></b>
-          <small>32 Anos · Edmundo &amp; Mônica · Garopaba</small>
         </div>
       </a>
       <nav class="menu" aria-label="Menu principal">
