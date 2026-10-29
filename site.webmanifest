@@ -1,0 +1,12 @@
+{
+  "name": "Edmundo Diversões Náuticas — Garopaba - SC",
+  "short_name": "Edmundo",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF7E6",
+  "theme_color": "#07344A",
+  "icons": [
+    { "src": "img/favicon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "img/logo-edmundo-transparente.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
