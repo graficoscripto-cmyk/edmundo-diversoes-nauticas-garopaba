@@ -11,7 +11,7 @@
 - **Telefones e WhatsApp:**
   - **Edmundo:** `(48) 99965-5708` (`https://wa.me/5548999655708`)
   - **Mônica:** `(48) 99185-7717` (`https://wa.me/5548991857717`)
-- **Horário de Funcionamento:** Segunda a Domingo, `09:00–18:00`
+- **Horário de Funcionamento:** Temporada de verão (15/12 a 30/03), `09h30–18h00`
 - **Ano de Fundação:** `1994` (32 anos de tradição em Garopaba)
 - **Redes Sociais:**
   - Instagram: `https://www.instagram.com/edmundodiversoesnauticas/`

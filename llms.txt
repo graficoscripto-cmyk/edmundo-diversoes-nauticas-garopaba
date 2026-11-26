@@ -20,7 +20,7 @@
 - **Gerente:** Nardi
 - **Atendimento na Praia:** Equipe identificada com camisa laranja na beira da Praia dos Pescadores
 - **Tradição:** 32 anos de atuação na Praia dos Pescadores em Garopaba - SC (desde 1994)
-- **Horário de Funcionamento:** Segunda a Domingo, das 09:00 às 18:00
+- **Horário de Funcionamento:** Temporada de verão (de 15 de dezembro a 30 de março), das 09h30 às 18h00
 - **Endereço:** Praia dos Pescadores — Final da Rua Marques Guimarães (na reta da rua, onde acaba a calçada e começa o primeiro ponto de areia da praia), Centro Histórico, Garopaba - SC, CEP 88495-000
 - **Coordenadas Geográficas:** `-28.02357, -48.61712`
 - **Google Maps Place ID:** `ChIJswRMh1zRJpURLXp5Z4dqQbs`

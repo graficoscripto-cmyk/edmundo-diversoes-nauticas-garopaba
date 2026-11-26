@@ -156,8 +156,10 @@
           {
             "@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            "opens": "09:00",
-            "closes": "18:00"
+            "opens": "09:30",
+            "closes": "18:00",
+            "validFrom": "2026-12-15",
+            "validThrough": "2027-03-30"
           }
         ],
         "address": {
@@ -202,6 +204,7 @@
         "@type": "FAQPage",
         "@id": "https://www.edmundodiversoesnauticas.com.br/#duvidas",
         "mainEntity": [
+          { "@type": "Question", "name": "Qual é o horário e período de funcionamento?", "acceptedAnswer": { "@type": "Answer", "text": "Atendemos na temporada de verão, de 15 de dezembro a 30 de março, das 09h30 às 18h00, direto na areia da Praia dos Pescadores em Garopaba - SC." } },
           { "@type": "Question", "name": "Onde vocês ficam exatamente em Garopaba?", "acceptedAnswer": { "@type": "Answer", "text": "Ficamos na Praia dos Pescadores, no Centro Histórico de Garopaba - SC, exatamente na reta final da Rua Marques Guimarães, onde acaba a calçada e começa o primeiro ponto de areia da praia." } },
           { "@type": "Question", "name": "Há quanto tempo vocês atuam?", "acceptedAnswer": { "@type": "Answer", "text": "Há 32 anos na Praia dos Pescadores em Garopaba, com atendimento da própria família." } },
           { "@type": "Question", "name": "Quantos lugares tem o Banana Boat?", "acceptedAnswer": { "@type": "Answer", "text": "Até 20 lugares. Dá para levar a família e a turma toda." } },
@@ -550,6 +553,7 @@ footer .wrap{display:grid;gap:6px}
         </div>
         <span class="lbl">3. Data (opcional)</span>
         <input type="date" class="in-date" id="data" aria-label="Data do passeio">
+        <small style="display:block;margin-top:6px;font-size:.82rem;color:var(--tinta-2)">Temporada de verão: 15/12 a 30/03 · 09h30 às 18h00</small>
       </div>
       <aside class="resumo rev">
         <h3>Sua mensagem</h3>
@@ -603,6 +607,7 @@ footer .wrap{display:grid;gap:6px}
     <div class="emb-g">
       <div class="info rev">
         <div><small>Onde</small><b>Praia dos Pescadores (fim da Rua Marques Guimarães, onde acaba a calçada e começa a areia) · Centro Histórico, Garopaba - SC</b></div>
+        <div><small>Horário</small><b>09h30 às 18h00 · Temporada de verão (15/12 a 30/03)</b></div>
         <div><small>WhatsApp</small><b>Edmundo (48) 99965-5708 · Mônica (48) 99185-7717</b></div>
         <div><small>Instagram</small><b>@edmundodiversoesnauticas</b></div>
         <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=-28.02357,-48.61712" target="_blank" rel="noopener noreferrer">Como chegar no Google Maps</a>
@@ -610,6 +615,7 @@ footer .wrap{display:grid;gap:6px}
       <div class="mapa rev" id="mapa"><button type="button" class="btn claro" id="verMapa">Ver o mapa aqui</button></div>
     </div>
     <div class="faq">
+      <details class="rev" open><summary>Qual é o horário e período de funcionamento?</summary><p>Atendemos exclusivamente na temporada de verão, de 15 de dezembro a 30 de março, das 09h30 às 18h00, direto na areia da Praia dos Pescadores.</p></details>
       <details class="rev"><summary>Onde vocês ficam exatamente em Garopaba?</summary><p>Ficamos na Praia dos Pescadores, no Centro Histórico de Garopaba - SC, exatamente na reta final da Rua Marques Guimarães, onde acaba a calçada e começa o primeiro ponto de areia da praia.</p></details>
       <details class="rev"><summary>Há quanto tempo vocês atuam?</summary><p>Há 32 anos na Praia dos Pescadores em Garopaba, com atendimento da própria família.</p></details>
       <details class="rev"><summary>Quantos lugares tem o Banana Boat?</summary><p>Até 20 lugares. Dá para levar a família e a turma toda.</p></details>
@@ -631,6 +637,7 @@ footer .wrap{display:grid;gap:6px}
 <footer>
   <div class="wrap">
     <div><strong>Edmundo Diversões Náuticas</strong> · Praia dos Pescadores (fim da Rua Marques Guimarães, Centro Histórico), Garopaba - SC</div>
+    <div>Temporada de verão (15/12 a 30/03) · Atendimento das 09h30 às 18h00</div>
     <div>WhatsApp <a href="https://wa.me/5548999655708" target="_blank" rel="noopener">(48) 99965-5708</a> · <a href="https://wa.me/5548991857717" target="_blank" rel="noopener">(48) 99185-7717</a> · <a href="https://www.instagram.com/edmundodiversoesnauticas/" target="_blank" rel="noopener">@edmundodiversoesnauticas</a></div>
   </div>
 </footer>
